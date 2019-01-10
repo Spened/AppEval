@@ -31,14 +31,16 @@
             this.lblChoixOffre = new System.Windows.Forms.Label();
             this.lblExpirationOffre = new System.Windows.Forms.Label();
             this.lblListeCriteres = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAjouterCritere = new System.Windows.Forms.Button();
             this.lstCriteres = new System.Windows.Forms.ListView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNomCritere = new System.Windows.Forms.TextBox();
             this.txtExpirationOffre = new System.Windows.Forms.TextBox();
             this.cmbChoixOffre = new System.Windows.Forms.ComboBox();
             this.lblNomCritere = new System.Windows.Forms.Label();
             this.lblCoeffCritere = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCoeffCritere = new System.Windows.Forms.TextBox();
+            this.lblIdCritere = new System.Windows.Forms.Label();
+            this.txtIdCritere = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblChoixOffre
@@ -68,14 +70,14 @@
             this.lblListeCriteres.TabIndex = 6;
             this.lblListeCriteres.Text = "Liste des critères :";
             // 
-            // button1
+            // btnAjouterCritere
             // 
-            this.button1.Location = new System.Drawing.Point(232, 307);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 24);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Ajouter un critère";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAjouterCritere.Location = new System.Drawing.Point(232, 307);
+            this.btnAjouterCritere.Name = "btnAjouterCritere";
+            this.btnAjouterCritere.Size = new System.Drawing.Size(151, 24);
+            this.btnAjouterCritere.TabIndex = 7;
+            this.btnAjouterCritere.Text = "Ajouter un critère";
+            this.btnAjouterCritere.UseVisualStyleBackColor = true;
             // 
             // lstCriteres
             // 
@@ -85,12 +87,12 @@
             this.lstCriteres.TabIndex = 8;
             this.lstCriteres.UseCompatibleStateImageBehavior = false;
             // 
-            // textBox1
+            // txtNomCritere
             // 
-            this.textBox1.Location = new System.Drawing.Point(232, 211);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtNomCritere.Location = new System.Drawing.Point(232, 233);
+            this.txtNomCritere.Name = "txtNomCritere";
+            this.txtNomCritere.Size = new System.Drawing.Size(151, 20);
+            this.txtNomCritere.TabIndex = 9;
             // 
             // txtExpirationOffre
             // 
@@ -111,7 +113,7 @@
             // lblNomCritere
             // 
             this.lblNomCritere.AutoSize = true;
-            this.lblNomCritere.Location = new System.Drawing.Point(229, 184);
+            this.lblNomCritere.Location = new System.Drawing.Point(229, 217);
             this.lblNomCritere.Name = "lblNomCritere";
             this.lblNomCritere.Size = new System.Drawing.Size(61, 13);
             this.lblNomCritere.TabIndex = 13;
@@ -120,32 +122,50 @@
             // lblCoeffCritere
             // 
             this.lblCoeffCritere.AutoSize = true;
-            this.lblCoeffCritere.Location = new System.Drawing.Point(229, 245);
+            this.lblCoeffCritere.Location = new System.Drawing.Point(229, 265);
             this.lblCoeffCritere.Name = "lblCoeffCritere";
             this.lblCoeffCritere.Size = new System.Drawing.Size(89, 13);
             this.lblCoeffCritere.TabIndex = 14;
             this.lblCoeffCritere.Text = "Coefficient critère";
             // 
-            // textBox2
+            // txtCoeffCritere
             // 
-            this.textBox2.Location = new System.Drawing.Point(232, 271);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(151, 20);
-            this.textBox2.TabIndex = 15;
+            this.txtCoeffCritere.Location = new System.Drawing.Point(232, 281);
+            this.txtCoeffCritere.Name = "txtCoeffCritere";
+            this.txtCoeffCritere.Size = new System.Drawing.Size(151, 20);
+            this.txtCoeffCritere.TabIndex = 15;
+            // 
+            // lblIdCritere
+            // 
+            this.lblIdCritere.AutoSize = true;
+            this.lblIdCritere.Location = new System.Drawing.Point(229, 171);
+            this.lblIdCritere.Name = "lblIdCritere";
+            this.lblIdCritere.Size = new System.Drawing.Size(50, 13);
+            this.lblIdCritere.TabIndex = 16;
+            this.lblIdCritere.Text = "ID critère";
+            // 
+            // txtIdCritere
+            // 
+            this.txtIdCritere.Location = new System.Drawing.Point(232, 187);
+            this.txtIdCritere.Name = "txtIdCritere";
+            this.txtIdCritere.Size = new System.Drawing.Size(151, 20);
+            this.txtIdCritere.TabIndex = 17;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtIdCritere);
+            this.Controls.Add(this.lblIdCritere);
+            this.Controls.Add(this.txtCoeffCritere);
             this.Controls.Add(this.lblCoeffCritere);
             this.Controls.Add(this.lblNomCritere);
             this.Controls.Add(this.cmbChoixOffre);
             this.Controls.Add(this.txtExpirationOffre);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNomCritere);
             this.Controls.Add(this.lstCriteres);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAjouterCritere);
             this.Controls.Add(this.lblListeCriteres);
             this.Controls.Add(this.lblExpirationOffre);
             this.Controls.Add(this.lblChoixOffre);
@@ -162,14 +182,16 @@
         private System.Windows.Forms.Label lblChoixOffre;
         private System.Windows.Forms.Label lblExpirationOffre;
         private System.Windows.Forms.Label lblListeCriteres;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAjouterCritere;
         private System.Windows.Forms.ListView lstCriteres;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNomCritere;
         private System.Windows.Forms.TextBox txtExpirationOffre;
         private System.Windows.Forms.ComboBox cmbChoixOffre;
         private System.Windows.Forms.Label lblNomCritere;
         private System.Windows.Forms.Label lblCoeffCritere;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCoeffCritere;
+        private System.Windows.Forms.Label lblIdCritere;
+        private System.Windows.Forms.TextBox txtIdCritere;
     }
 }
 
