@@ -14,7 +14,7 @@ namespace ClassBDD
 {
     public class Connexion
     {
-        string Conx = "Server=localhost;Port=6666;Database=postgres;User Id=openpg;Password=;";
+        string Conx = "Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd;";
         NpgsqlCommand MyCmd = null;
         NpgsqlConnection MyCnx = null;
 
@@ -24,7 +24,7 @@ namespace ClassBDD
             MyCnx.Open();
             if(MyCnx.State == System.Data.ConnectionState.Open)
             {
-                return "Connexion BDD Réussite !";
+                return "Connexion BDD Réussit !";
             }
             else
             {

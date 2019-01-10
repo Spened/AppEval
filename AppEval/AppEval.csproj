@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassBDD\ClassBDD.csproj">
+      <Project>{6c6bd087-6d34-4120-8dd6-ab8592b9876f}</Project>
+      <Name>ClassBDD</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

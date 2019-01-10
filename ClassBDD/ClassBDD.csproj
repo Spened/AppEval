@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AppEval\AppEval.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="Mono.Security">
       <HintPath>..\psgsql\Mono.Security.dll</HintPath>
     </Reference>
