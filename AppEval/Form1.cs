@@ -14,7 +14,9 @@ namespace AppEval
     {
         public Form1()
         {
+            ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
             InitializeComponent();
+            MessageBox.Show(pgsql.TestConn());
         }
 
         private void Form1_Load(object sender, EventArgs e)
