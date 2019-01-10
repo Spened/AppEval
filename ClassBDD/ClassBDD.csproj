@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ClassMetier\ClassMetier.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Mono.Security">
       <HintPath>..\psgsql\Mono.Security.dll</HintPath>
     </Reference>

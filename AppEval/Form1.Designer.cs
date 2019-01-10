@@ -46,116 +46,130 @@
             // lblChoixOffre
             // 
             this.lblChoixOffre.AutoSize = true;
-            this.lblChoixOffre.Location = new System.Drawing.Point(51, 41);
+            this.lblChoixOffre.Location = new System.Drawing.Point(68, 50);
+            this.lblChoixOffre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChoixOffre.Name = "lblChoixOffre";
-            this.lblChoixOffre.Size = new System.Drawing.Size(82, 13);
+            this.lblChoixOffre.Size = new System.Drawing.Size(109, 17);
             this.lblChoixOffre.TabIndex = 1;
             this.lblChoixOffre.Text = "Choix de l\'offre :";
             // 
             // lblExpirationOffre
             // 
             this.lblExpirationOffre.AutoSize = true;
-            this.lblExpirationOffre.Location = new System.Drawing.Point(51, 93);
+            this.lblExpirationOffre.Location = new System.Drawing.Point(68, 114);
+            this.lblExpirationOffre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExpirationOffre.Name = "lblExpirationOffre";
-            this.lblExpirationOffre.Size = new System.Drawing.Size(135, 13);
+            this.lblExpirationOffre.Size = new System.Drawing.Size(181, 17);
             this.lblExpirationOffre.TabIndex = 2;
             this.lblExpirationOffre.Text = "Date d\'expiration de l\'offre :";
             // 
             // lblListeCriteres
             // 
             this.lblListeCriteres.AutoSize = true;
-            this.lblListeCriteres.Location = new System.Drawing.Point(51, 152);
+            this.lblListeCriteres.Location = new System.Drawing.Point(68, 187);
+            this.lblListeCriteres.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblListeCriteres.Name = "lblListeCriteres";
-            this.lblListeCriteres.Size = new System.Drawing.Size(92, 13);
+            this.lblListeCriteres.Size = new System.Drawing.Size(124, 17);
             this.lblListeCriteres.TabIndex = 6;
             this.lblListeCriteres.Text = "Liste des critères :";
             // 
             // btnAjouterCritere
             // 
-            this.btnAjouterCritere.Location = new System.Drawing.Point(232, 307);
+            this.btnAjouterCritere.Location = new System.Drawing.Point(309, 378);
+            this.btnAjouterCritere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAjouterCritere.Name = "btnAjouterCritere";
-            this.btnAjouterCritere.Size = new System.Drawing.Size(151, 24);
+            this.btnAjouterCritere.Size = new System.Drawing.Size(201, 30);
             this.btnAjouterCritere.TabIndex = 7;
             this.btnAjouterCritere.Text = "Ajouter un critère";
             this.btnAjouterCritere.UseVisualStyleBackColor = true;
+            this.btnAjouterCritere.Click += new System.EventHandler(this.btnAjouterCritere_Click);
             // 
             // lstCriteres
             // 
-            this.lstCriteres.Location = new System.Drawing.Point(54, 195);
+            this.lstCriteres.Location = new System.Drawing.Point(72, 240);
+            this.lstCriteres.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstCriteres.Name = "lstCriteres";
-            this.lstCriteres.Size = new System.Drawing.Size(132, 136);
+            this.lstCriteres.Size = new System.Drawing.Size(175, 166);
             this.lstCriteres.TabIndex = 8;
             this.lstCriteres.UseCompatibleStateImageBehavior = false;
             // 
             // txtNomCritere
             // 
-            this.txtNomCritere.Location = new System.Drawing.Point(232, 233);
+            this.txtNomCritere.Location = new System.Drawing.Point(309, 287);
+            this.txtNomCritere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNomCritere.Name = "txtNomCritere";
-            this.txtNomCritere.Size = new System.Drawing.Size(151, 20);
+            this.txtNomCritere.Size = new System.Drawing.Size(200, 22);
             this.txtNomCritere.TabIndex = 9;
             // 
             // txtExpirationOffre
             // 
-            this.txtExpirationOffre.Location = new System.Drawing.Point(232, 90);
+            this.txtExpirationOffre.Location = new System.Drawing.Point(309, 111);
+            this.txtExpirationOffre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtExpirationOffre.Name = "txtExpirationOffre";
-            this.txtExpirationOffre.Size = new System.Drawing.Size(226, 20);
+            this.txtExpirationOffre.Size = new System.Drawing.Size(300, 22);
             this.txtExpirationOffre.TabIndex = 10;
             // 
             // cmbChoixOffre
             // 
             this.cmbChoixOffre.FormattingEnabled = true;
-            this.cmbChoixOffre.Location = new System.Drawing.Point(232, 38);
+            this.cmbChoixOffre.Location = new System.Drawing.Point(309, 47);
+            this.cmbChoixOffre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbChoixOffre.Name = "cmbChoixOffre";
-            this.cmbChoixOffre.Size = new System.Drawing.Size(226, 21);
+            this.cmbChoixOffre.Size = new System.Drawing.Size(300, 24);
             this.cmbChoixOffre.TabIndex = 12;
             this.cmbChoixOffre.SelectedIndexChanged += new System.EventHandler(this.cmbChoixOffre_SelectedIndexChanged);
             // 
             // lblNomCritere
             // 
             this.lblNomCritere.AutoSize = true;
-            this.lblNomCritere.Location = new System.Drawing.Point(229, 217);
+            this.lblNomCritere.Location = new System.Drawing.Point(305, 267);
+            this.lblNomCritere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNomCritere.Name = "lblNomCritere";
-            this.lblNomCritere.Size = new System.Drawing.Size(61, 13);
+            this.lblNomCritere.Size = new System.Drawing.Size(81, 17);
             this.lblNomCritere.TabIndex = 13;
             this.lblNomCritere.Text = "Nom critère";
             // 
             // lblCoeffCritere
             // 
             this.lblCoeffCritere.AutoSize = true;
-            this.lblCoeffCritere.Location = new System.Drawing.Point(229, 265);
+            this.lblCoeffCritere.Location = new System.Drawing.Point(305, 326);
+            this.lblCoeffCritere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCoeffCritere.Name = "lblCoeffCritere";
-            this.lblCoeffCritere.Size = new System.Drawing.Size(89, 13);
+            this.lblCoeffCritere.Size = new System.Drawing.Size(118, 17);
             this.lblCoeffCritere.TabIndex = 14;
             this.lblCoeffCritere.Text = "Coefficient critère";
             // 
             // txtCoeffCritere
             // 
-            this.txtCoeffCritere.Location = new System.Drawing.Point(232, 281);
+            this.txtCoeffCritere.Location = new System.Drawing.Point(309, 346);
+            this.txtCoeffCritere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCoeffCritere.Name = "txtCoeffCritere";
-            this.txtCoeffCritere.Size = new System.Drawing.Size(151, 20);
+            this.txtCoeffCritere.Size = new System.Drawing.Size(200, 22);
             this.txtCoeffCritere.TabIndex = 15;
             // 
             // lblIdCritere
             // 
             this.lblIdCritere.AutoSize = true;
-            this.lblIdCritere.Location = new System.Drawing.Point(229, 171);
+            this.lblIdCritere.Location = new System.Drawing.Point(305, 210);
+            this.lblIdCritere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdCritere.Name = "lblIdCritere";
-            this.lblIdCritere.Size = new System.Drawing.Size(50, 13);
+            this.lblIdCritere.Size = new System.Drawing.Size(65, 17);
             this.lblIdCritere.TabIndex = 16;
             this.lblIdCritere.Text = "ID critère";
             // 
             // txtIdCritere
             // 
-            this.txtIdCritere.Location = new System.Drawing.Point(232, 187);
+            this.txtIdCritere.Location = new System.Drawing.Point(309, 230);
+            this.txtIdCritere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdCritere.Name = "txtIdCritere";
-            this.txtIdCritere.Size = new System.Drawing.Size(151, 20);
+            this.txtIdCritere.Size = new System.Drawing.Size(200, 22);
             this.txtIdCritere.TabIndex = 17;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.txtIdCritere);
             this.Controls.Add(this.lblIdCritere);
             this.Controls.Add(this.txtCoeffCritere);
@@ -169,6 +183,7 @@
             this.Controls.Add(this.lblListeCriteres);
             this.Controls.Add(this.lblExpirationOffre);
             this.Controls.Add(this.lblChoixOffre);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -4,13 +4,15 @@ namespace ClassMetier
 {
     public class Critere
     {
-        private int id;
+        private int idOffre;
+        private int idCritere;
         private string libel;
         private int coef;
 
-        public void critere(int unId, string unLibel, int unCoef)
+        public Critere(int unIdOffre, int unIdCritere, string unLibel, int unCoef)
         {
-            this.id = unId;
+            this.idOffre = unIdOffre;
+            this.idCritere = unIdCritere;
             this.libel = unLibel;
             this.coef = unCoef;
         }
