@@ -12,24 +12,19 @@ using System.Text;
 
 namespace ClassBDD
 {
-    public class Connexion
+    public class PGSQL
     {
         string Conx = "Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd;";
         NpgsqlCommand MyCmd = null;
         NpgsqlConnection MyCnx = null;
 
-        public string ConnnexionBDD()
+        public void AjoutCritereSQL(int unId, string unLibel, int unCoef)
         {
-            MyCnx = new NpgsqlConnection(Conx);
-            MyCnx.Open();
-            if(MyCnx.State == System.Data.ConnectionState.Open)
-            {
-                return "Connexion BDD Réussit !";
-            }
-            else
-            {
-                return "Connexion BDD Échoué !";
-            }
-        }        
+            var conn = new NpgsqlConnection(Conx);
+            conn.Open();
+            MyCmd.Connection = conn;
+            MyCmd.CommandText = "INSET INTO critere(idcritere, libellecritere, coefpond) VALUES("+unId+""+unLibel+","+unCoef+");";
+            MyCmd.ExecuteNonQuery();
+        }
     }
 }
