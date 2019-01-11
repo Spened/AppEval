@@ -23,21 +23,49 @@ namespace AppEval
         {
             ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
             foreach (ClassMetier.OffreEmplois offre in pgsql.GetOffreEmplois())
+            {
                 cmbChoixOffre.Items.Add(offre.getLibel);
+            }
+            nbCoefCritere.Value = 0;
+            nbIdCritere.Value = 1;
+            if(cmbChoixOffre.SelectedIndex < 0)
+            {
+                lstCriteres.Enabled = false;
+                nbCoefCritere.Enabled = false;
+                nbIdCritere.Enabled = false;
+                txtNomCritere.Enabled = false;
+                btnAjouterCritere.Enabled = false;
+            }
         }
 
         private void cmbChoixOffre_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(cmbChoixOffre.SelectedIndex >= 0)
+            {
+                lstCriteres.Enabled = true;
+                nbCoefCritere.Enabled = true;
+                nbIdCritere.Enabled = true;
+                txtNomCritere.Enabled = true;
+                btnAjouterCritere.Enabled = true;
+            }
+            else
+            {
+                lstCriteres.Enabled = false;
+                nbCoefCritere.Enabled = false;
+                nbIdCritere.Enabled = false;
+                txtNomCritere.Enabled = false;
+                btnAjouterCritere.Enabled = false;
+            }
         }
 
         private void btnAjouterCritere_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(cmbChoixOffre.SelectedIndex.ToString());
-            int coef = int.Parse(txtCoeffCritere.ToString());
-            int id = int.Parse(txtIdCritere.ToString());
+            int idOffre = cmbChoixOffre.SelectedIndex + 1;
             ClassBDD.PGSQL critere = new ClassBDD.PGSQL();
-            critere.AjoutCritereSQL(id, txtNomCritere.ToString(), coef);
+            critere.AjoutCritereSQL(idOffre, (int)nbIdCritere.Value, txtNomCritere.Text, (int)nbCoefCritere.Value);
+            txtNomCritere.Clear();
+            nbCoefCritere.Value = 0;
+            nbIdCritere.Value = 1;
         }
     }
 }
