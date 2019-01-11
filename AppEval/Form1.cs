@@ -24,7 +24,8 @@ namespace AppEval
             ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
             foreach (ClassMetier.OffreEmplois offre in pgsql.GetOffreEmplois())
             {
-                cmbChoixOffre.Items.Add(offre.getLibel);
+                cmbChoixOffre.Items.Add(offre.GetLibel);
+                txtExpirationOffre.Text = offre.GetDateFin.ToString();
             }
             nbCoefCritere.Value = 0;
             nbIdCritere.Value = 1;
@@ -40,13 +41,20 @@ namespace AppEval
 
         private void cmbChoixOffre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbChoixOffre.SelectedIndex >= 0)
+            lstCriteres.Clear();
+            txtExpirationOffre.Clear();
+            ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
+            if (cmbChoixOffre.SelectedIndex >= 0)
             {
                 lstCriteres.Enabled = true;
                 nbCoefCritere.Enabled = true;
                 nbIdCritere.Enabled = true;
                 txtNomCritere.Enabled = true;
                 btnAjouterCritere.Enabled = true;
+                foreach (ClassMetier.Critere critere in pgsql.GetCriteres(cmbChoixOffre.SelectedIndex + 1))
+                {
+                    lstCriteres.Items.Add(critere.GetLibel);
+                }
             }
             else
             {
@@ -60,12 +68,18 @@ namespace AppEval
 
         private void btnAjouterCritere_Click(object sender, EventArgs e)
         {
+            lstCriteres.Clear();
             int idOffre = cmbChoixOffre.SelectedIndex + 1;
-            ClassBDD.PGSQL critere = new ClassBDD.PGSQL();
-            critere.AjoutCritereSQL(idOffre, (int)nbIdCritere.Value, txtNomCritere.Text, (int)nbCoefCritere.Value);
+            ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
+            int nbCritere = pgsql.CountCritere(idOffre) + 1;
+            pgsql.AjoutCritereSQL(idOffre, nbCritere, txtNomCritere.Text, (int)nbCoefCritere.Value);
             txtNomCritere.Clear();
             nbCoefCritere.Value = 0;
             nbIdCritere.Value = 1;
+            foreach (ClassMetier.Critere critere in pgsql.GetCriteres(cmbChoixOffre.SelectedIndex + 1))
+            {
+                lstCriteres.Items.Add(critere.GetLibel);
+            }
         }
     }
 }

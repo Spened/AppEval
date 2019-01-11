@@ -19,7 +19,6 @@ namespace ClassBDD
         {
             string str = "";
             bool boolfound = false;
-            conn().Open();
 
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi", conn());
             NpgsqlDataReader dr = cmd.ExecuteReader();
@@ -36,43 +35,82 @@ namespace ClassBDD
             return str;
         }
 
-        public NpgsqlConnection conn()
+        public static NpgsqlConnection conn()
         {
             NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd");
+            conn.Open();
             return conn;
         }
 
         public void AjoutCritereSQL(int unIdOffre, int unIdCritere, string unLibel, int unCoef)
         {
-            conn().Open();
             NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO critere(idoffre, idcritere, libellecritere, coeffpond) VALUES(" + unIdOffre + "," + unIdCritere + ", '" + unLibel + "'," + unCoef + ");", conn());
             cmd.ExecuteNonQuery();
             conn().Close();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idOffre"></param>
+        /// <returns></returns>
+        public int CountCritere(int idOffre)
+        {
+            int count = 0;
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.critere WHERE idoffre ="+idOffre, conn());
+            try
+            {
+                count = (int)command.ExecuteScalar();
+            }
+            catch
+            {
+                count = 0;
+            }
+            return count;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<ClassMetier.OffreEmplois> GetOffreEmplois()
         {
-            using (NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd"))
+            List<ClassMetier.OffreEmplois> lesOffresEmplois = new List<ClassMetier.OffreEmplois>();
+            // Define a query
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi", conn());
+            // Execute the query and obtain a result set
+            NpgsqlDataReader dr = command.ExecuteReader();
+            // Output rows
+            while (dr.Read())
             {
-                DataSet ds = new DataSet();
-                DataTable dt = new DataTable();
-                List<ClassMetier.OffreEmplois> lesOffresEmplois = new List<ClassMetier.OffreEmplois>();
-                conn.Open();
-                // Define a query
-                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi", conn);
-                // Execute the query and obtain a result set
-                NpgsqlDataReader dr = command.ExecuteReader();
-                // Output rows
-                while (dr.Read())
-                {
-                    int id = int.Parse(dr[0].ToString());
-                    DateTime date = DateTime.Parse(dr[2].ToString());
-                    ClassMetier.OffreEmplois newOffre = new ClassMetier.OffreEmplois(id, dr[1].ToString(), date);
-                    lesOffresEmplois.Add(newOffre);
-                }
-                conn.Close();
-                return lesOffresEmplois;
+                int id = int.Parse(dr[0].ToString());
+                DateTime date = DateTime.Parse(dr[2].ToString());
+                ClassMetier.OffreEmplois newOffre = new ClassMetier.OffreEmplois(id, dr[1].ToString(), date);
+                lesOffresEmplois.Add(newOffre);
             }
+            conn().Close();
+            return lesOffresEmplois;
+        }
+
+        public List<ClassMetier.Critere> GetCriteres(int idOffre)
+        {
+            List<ClassMetier.Critere> lesCriteres = new List<ClassMetier.Critere>();
+            // Define a query
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.critere WHERE idoffre="+idOffre, conn());
+            // Execute the query and obtain a result set
+            NpgsqlDataReader dr = command.ExecuteReader();
+            // Output rows
+            while (dr.Read())
+            {
+                int newIdOffre = int.Parse(dr[0].ToString());
+                int newIdCritere = int.Parse(dr[1].ToString());
+                int coef = int.Parse(dr[3].ToString());
+                ClassMetier.Critere newCritere = new ClassMetier.Critere(newIdOffre, newIdCritere, dr[2].ToString(), coef);
+                lesCriteres.Add(newCritere);
+            }
+            dr.Close();
+            conn().Close();
+            return lesCriteres;
         }
     }
 }

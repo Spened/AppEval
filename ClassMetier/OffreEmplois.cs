@@ -20,14 +20,12 @@ namespace ClassMetier
         public int GetId { get { return this.id; } set { this.id = value; } }
         public string GetLibel { get { return this.libel; } set { this.libel = value; } }
         public DateTime GetDateFin { get {return this.dateFin; } set {this.dateFin = value; } }
-        /*
         public List<OffreEmplois> lesOffresEmplois()
         {
             List<OffreEmplois> offreEmplois = new List<OffreEmplois>();
-            ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
+            
             
             return offreEmplois;
         }
-        */
     }
 }
