@@ -17,9 +17,9 @@ namespace ClassMetier
             this.dateFin = uneDateFin;
         }
 
-        public int getId { get; set; }
+        public int getId { get { return this.id; } set { this.id = value; } }
         public string getLibel { get { return this.libel; } set { this.libel = value; } }
-        public DateTime getDateFin { get; set; }
+        public DateTime getDateFin { get {this.dateFin; } set {this.dateFin = value; } }
         /*
         public List<OffreEmplois> lesOffresEmplois()
         {
