@@ -40,11 +40,18 @@ namespace ClassBDD
             }
         }
 
-        public void AjoutCritereSQL(int unId, string unLibel, int unCoef)
+        public NpgsqlConnection conn()
         {
-            MyCnx.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("INSET INTO critere(idcritere, libellecritere, coefpond) VALUES(" +unId+""+unLibel+","+unCoef+");", MyCnx);
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd");
+            return conn;
+        }
+
+        public void AjoutCritereSQL(int unIdOffre, int unIdCritere, string unLibel, int unCoef)
+        {
+            conn().Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO critere(idoffre, idcritere, libellecritere, coeffpond) VALUES(" + unIdOffre + "," + unIdCritere + ", '" + unLibel + "'," + unCoef + ");", conn);
             cmd.ExecuteNonQuery();
+            conn().Close();
         }
 
         public List<ClassMetier.OffreEmplois> GetOffreEmplois()
@@ -53,12 +60,10 @@ namespace ClassBDD
             {
                 DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
-                int cptOffre = 1;
                 List<ClassMetier.OffreEmplois> lesOffresEmplois = new List<ClassMetier.OffreEmplois>();
                 conn.Open();
                 // Define a query
                 NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi", conn);
-
                 // Execute the query and obtain a result set
                 NpgsqlDataReader dr = command.ExecuteReader();
                 // Output rows
@@ -69,7 +74,6 @@ namespace ClassBDD
                     ClassMetier.OffreEmplois newOffre = new ClassMetier.OffreEmplois(id, dr[1].ToString(), date);
                     lesOffresEmplois.Add(newOffre);
                 }
-                    
                 conn.Close();
                 return lesOffresEmplois;
             }

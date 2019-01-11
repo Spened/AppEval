@@ -19,7 +19,7 @@ namespace ClassMetier
 
         public int getId { get; set; }
         public string getLibel { get { return this.libel; } set { this.libel = value; } }
-        public DateTime getDateFin { get; set; }
+        public DateTime getDateFin { get { return this.dateFin; } set { this.dateFin = value; } }
         /*
         public List<OffreEmplois> lesOffresEmplois()
         {

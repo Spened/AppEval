@@ -38,9 +38,11 @@
             this.cmbChoixOffre = new System.Windows.Forms.ComboBox();
             this.lblNomCritere = new System.Windows.Forms.Label();
             this.lblCoeffCritere = new System.Windows.Forms.Label();
-            this.txtCoeffCritere = new System.Windows.Forms.TextBox();
             this.lblIdCritere = new System.Windows.Forms.Label();
-            this.txtIdCritere = new System.Windows.Forms.TextBox();
+            this.nbIdCritere = new System.Windows.Forms.NumericUpDown();
+            this.nbCoefCritere = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nbIdCritere)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbCoefCritere)).BeginInit();
             this.SuspendLayout();
             // 
             // lblChoixOffre
@@ -76,7 +78,7 @@
             // btnAjouterCritere
             // 
             this.btnAjouterCritere.Location = new System.Drawing.Point(309, 378);
-            this.btnAjouterCritere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAjouterCritere.Margin = new System.Windows.Forms.Padding(4);
             this.btnAjouterCritere.Name = "btnAjouterCritere";
             this.btnAjouterCritere.Size = new System.Drawing.Size(201, 30);
             this.btnAjouterCritere.TabIndex = 7;
@@ -87,7 +89,7 @@
             // lstCriteres
             // 
             this.lstCriteres.Location = new System.Drawing.Point(72, 240);
-            this.lstCriteres.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstCriteres.Margin = new System.Windows.Forms.Padding(4);
             this.lstCriteres.Name = "lstCriteres";
             this.lstCriteres.Size = new System.Drawing.Size(175, 166);
             this.lstCriteres.TabIndex = 8;
@@ -96,7 +98,7 @@
             // txtNomCritere
             // 
             this.txtNomCritere.Location = new System.Drawing.Point(309, 287);
-            this.txtNomCritere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNomCritere.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomCritere.Name = "txtNomCritere";
             this.txtNomCritere.Size = new System.Drawing.Size(200, 22);
             this.txtNomCritere.TabIndex = 9;
@@ -104,7 +106,7 @@
             // txtExpirationOffre
             // 
             this.txtExpirationOffre.Location = new System.Drawing.Point(309, 111);
-            this.txtExpirationOffre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtExpirationOffre.Margin = new System.Windows.Forms.Padding(4);
             this.txtExpirationOffre.Name = "txtExpirationOffre";
             this.txtExpirationOffre.Size = new System.Drawing.Size(300, 22);
             this.txtExpirationOffre.TabIndex = 10;
@@ -113,7 +115,7 @@
             // 
             this.cmbChoixOffre.FormattingEnabled = true;
             this.cmbChoixOffre.Location = new System.Drawing.Point(309, 47);
-            this.cmbChoixOffre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbChoixOffre.Margin = new System.Windows.Forms.Padding(4);
             this.cmbChoixOffre.Name = "cmbChoixOffre";
             this.cmbChoixOffre.Size = new System.Drawing.Size(300, 24);
             this.cmbChoixOffre.TabIndex = 12;
@@ -139,14 +141,6 @@
             this.lblCoeffCritere.TabIndex = 14;
             this.lblCoeffCritere.Text = "Coefficient critère";
             // 
-            // txtCoeffCritere
-            // 
-            this.txtCoeffCritere.Location = new System.Drawing.Point(309, 346);
-            this.txtCoeffCritere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtCoeffCritere.Name = "txtCoeffCritere";
-            this.txtCoeffCritere.Size = new System.Drawing.Size(200, 22);
-            this.txtCoeffCritere.TabIndex = 15;
-            // 
             // lblIdCritere
             // 
             this.lblIdCritere.AutoSize = true;
@@ -157,22 +151,28 @@
             this.lblIdCritere.TabIndex = 16;
             this.lblIdCritere.Text = "ID critère";
             // 
-            // txtIdCritere
+            // nbIdCritere
             // 
-            this.txtIdCritere.Location = new System.Drawing.Point(309, 230);
-            this.txtIdCritere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtIdCritere.Name = "txtIdCritere";
-            this.txtIdCritere.Size = new System.Drawing.Size(200, 22);
-            this.txtIdCritere.TabIndex = 17;
+            this.nbIdCritere.Location = new System.Drawing.Point(308, 240);
+            this.nbIdCritere.Name = "nbIdCritere";
+            this.nbIdCritere.Size = new System.Drawing.Size(201, 22);
+            this.nbIdCritere.TabIndex = 18;
+            // 
+            // nbCoefCritere
+            // 
+            this.nbCoefCritere.Location = new System.Drawing.Point(309, 347);
+            this.nbCoefCritere.Name = "nbCoefCritere";
+            this.nbCoefCritere.Size = new System.Drawing.Size(201, 22);
+            this.nbCoefCritere.TabIndex = 19;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.txtIdCritere);
+            this.Controls.Add(this.nbCoefCritere);
+            this.Controls.Add(this.nbIdCritere);
             this.Controls.Add(this.lblIdCritere);
-            this.Controls.Add(this.txtCoeffCritere);
             this.Controls.Add(this.lblCoeffCritere);
             this.Controls.Add(this.lblNomCritere);
             this.Controls.Add(this.cmbChoixOffre);
@@ -183,10 +183,12 @@
             this.Controls.Add(this.lblListeCriteres);
             this.Controls.Add(this.lblExpirationOffre);
             this.Controls.Add(this.lblChoixOffre);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nbIdCritere)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbCoefCritere)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,9 +206,9 @@
         private System.Windows.Forms.ComboBox cmbChoixOffre;
         private System.Windows.Forms.Label lblNomCritere;
         private System.Windows.Forms.Label lblCoeffCritere;
-        private System.Windows.Forms.TextBox txtCoeffCritere;
         private System.Windows.Forms.Label lblIdCritere;
-        private System.Windows.Forms.TextBox txtIdCritere;
+        private System.Windows.Forms.NumericUpDown nbIdCritere;
+        private System.Windows.Forms.NumericUpDown nbCoefCritere;
     }
 }
 
