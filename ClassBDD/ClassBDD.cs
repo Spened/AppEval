@@ -47,68 +47,32 @@ namespace ClassBDD
             cmd.ExecuteNonQuery();
         }
 
-        public List<ClassMetier.OffreEmplois> OffreEmplois()
+        public List<ClassMetier.OffreEmplois> GetOffreEmplois()
         {
             using (NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd"))
             {
-                conn.Open();
-                //Création d'un compteur pour parcourir tout les données
-                int cntOffres = 0;
-                //Création d'une liste d'offres
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                int cptOffre = 1;
                 List<ClassMetier.OffreEmplois> lesOffresEmplois = new List<ClassMetier.OffreEmplois>();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) FROM public.offre_d_emploi", conn);
-                var nbOffres = cmd.ExecuteNonQuery();
-                while (nbOffres > 1)
+                conn.Open();
+                // Define a query
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi", conn);
+
+                // Execute the query and obtain a result set
+                NpgsqlDataReader dr = command.ExecuteReader();
+                // Output rows
+                while (dr.Read())
                 {
-                    //Requête SQL + Connection BDD
-                    NpgsqlCommand cmd1 = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi WHERE idoffre =" + cntOffres + ");", conn);
-                    //Stockage de la requête dans dr == row en php
-                    NpgsqlDataReader dr = cmd1.ExecuteReader();
-                    //Stockage de la valeur ID
-                    var id = int.Parse(dr[0].ToString());
-                    //Stockage de la valeur date
-                    var date = DateTime.Parse(dr[2].ToString());
-                    //Création d'un objet OffreEmplois + ajout de valeur
-                    ClassMetier.OffreEmplois offreEmploi = new ClassMetier.OffreEmplois(id, dr[1].ToString(), date);
-                    //Ajout à la liste lesOffresEmplois
-                    lesOffresEmplois.Add(offreEmploi);
-                    //Incrémentation du compteur
-                    cntOffres++;
-                    dr.Close();
+                    int id = int.Parse(dr[0].ToString());
+                    DateTime date = DateTime.Parse(dr[2].ToString());
+                    ClassMetier.OffreEmplois newOffre = new ClassMetier.OffreEmplois(id, dr[1].ToString(), date);
+                    lesOffresEmplois.Add(newOffre);
                 }
-                //Retourne la liste lesOffresEmplois
+                    
+                conn.Close();
                 return lesOffresEmplois;
             }
         }
-        /*
-            //Création d'un compteur pour parcourir tout les données
-            int cntOffres = 0;
-            //Création d'une liste d'offres
-            List<ClassMetier.OffreEmplois> lesOffresEmplois = new List<ClassMetier.OffreEmplois>();
-            //Requête SQL + Connection BDD
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT COUNT(*) FROM public.offre_d_emploi;", );
-            //Execution de la requête avec stockage du nombre de ligne retourner
-            var nbOffres = cmd.ExecuteNonQuery();
-            //Parcours de toutes les offres
-            while (nbOffres > 1)
-            {
-                //Requête SQL + Connection BDD
-                NpgsqlCommand cmd1 = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi WHERE idoffre =" + cntOffres + ");", MyCnx);
-                //Stockage de la requête dans dr == row en php
-                NpgsqlDataReader dr = cmd1.ExecuteReader();
-                //Stockage de la valeur ID
-                var id = int.Parse(dr[0].ToString());
-                //Stockage de la valeur date
-                var date = DateTime.Parse(dr[2].ToString());
-                //Création d'un objet OffreEmplois + ajout de valeur
-                ClassMetier.OffreEmplois offreEmploi = new ClassMetier.OffreEmplois(id, dr[1].ToString(), date);
-                //Ajout à la liste lesOffresEmplois
-                lesOffresEmplois.Add(offreEmploi);
-                //Incrémentation du compteur
-                cntOffres ++;
-            }
-            //Retourne la liste lesOffresEmplois
-            return lesOffresEmplois;
-            */
     }
 }

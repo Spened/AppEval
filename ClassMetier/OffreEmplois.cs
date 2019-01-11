@@ -18,7 +18,7 @@ namespace ClassMetier
         }
 
         public int getId { get; set; }
-        public string getLibel { get; set; }
+        public string getLibel { get { return this.libel; } set { this.libel = value; } }
         public DateTime getDateFin { get; set; }
         /*
         public List<OffreEmplois> lesOffresEmplois()

@@ -21,11 +21,9 @@ namespace AppEval
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ClassBDD.PGSQL offreEmplois = new ClassBDD.PGSQL();
-            foreach (ClassMetier.OffreEmplois offres in offreEmplois.OffreEmplois())
-            {
-                cmbChoixOffre.Items.Add(offres.getLibel);
-            }
+            ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
+            foreach (ClassMetier.OffreEmplois offre in pgsql.GetOffreEmplois())
+                cmbChoixOffre.Items.Add(offre.getLibel);
         }
 
         private void cmbChoixOffre_SelectedIndexChanged(object sender, EventArgs e)
