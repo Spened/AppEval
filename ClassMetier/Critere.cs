@@ -17,44 +17,9 @@ namespace ClassMetier
             this.coef = unCoef;
         }
 
-        public int getIdOffre()
-        {
-            return this.idOffre;
-        }
-
-        public int setIdOffre()
-        {
-            this.idOffre = unIdOffre;
-        }
-
-        public int getIdCritere()
-        {
-            return this.idCritere;
-        }
-
-        public int setIdCritere()
-        {
-            this.idCritere = unIdCritere;
-        }
-
-        public string getLibel()
-        {
-            return this.libel;
-        }
-
-        public int setLibel()
-        {
-            this.libel = unLibel;
-        }
-        
-        public int getCoef()
-        {
-            return this.coef;
-        }
-
-        public int setCoef()
-        {
-            this.coef = unCoef;
-        }
+        public int GetIdOffre { get { return this.idOffre; } set { this.idOffre = value; } }
+        public int GetIdCritere { get { return this.idCritere; } set { this.idCritere = value; } }
+        public string GetLibel { get { return this.libel; } set { this.libel = value; } }
+        public int GetCoef { get { return this.coef; } set { this.coef = value; } }
     }
 }

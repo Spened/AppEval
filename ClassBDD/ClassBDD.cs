@@ -24,7 +24,7 @@ namespace ClassBDD
             {
                 conn.Open();
 
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi", conn());
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
@@ -49,7 +49,7 @@ namespace ClassBDD
         public void AjoutCritereSQL(int unIdOffre, int unIdCritere, string unLibel, int unCoef)
         {
             conn().Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO critere(idoffre, idcritere, libellecritere, coeffpond) VALUES(" + unIdOffre + "," + unIdCritere + ", '" + unLibel + "'," + unCoef + ");", conn);
+            NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO critere(idoffre, idcritere, libellecritere, coeffpond) VALUES(" + unIdOffre + "," + unIdCritere + ", '" + unLibel + "'," + unCoef + ");", conn());
             cmd.ExecuteNonQuery();
             conn().Close();
         }
