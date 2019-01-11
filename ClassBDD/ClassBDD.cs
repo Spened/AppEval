@@ -15,29 +15,25 @@ namespace ClassBDD
 {
     public class PGSQL
     {
-        NpgsqlConnection MyCnx = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd");
         public string TestConn()
         {
             string str = "";
             bool boolfound = false;
-            using (NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd"))
-            {
-                conn.Open();
+            conn().Open();
 
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi", conn());
-                NpgsqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    boolfound = true;
-                    str = "connection established";
-                }
-                if (boolfound == false)
-                {
-                    str = "Data does not exist";
-                }
-                dr.Close();
-                return str;
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM public.offre_d_emploi", conn());
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                boolfound = true;
+                str = "connection established";
             }
+            if (boolfound == false)
+            { 
+                str = "Data does not exist";
+            }
+            dr.Close();
+            return str;
         }
 
         public NpgsqlConnection conn()
