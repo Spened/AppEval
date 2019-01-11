@@ -42,9 +42,9 @@ namespace ClassBDD
             return conn;
         }
 
-        public void AjoutCritereSQL(int unIdOffre, int unIdCritere, string unLibel, int unCoef)
+        public void AjoutCritereSQL(int unIdOffre, string unLibel, int unCoef)
         {
-            NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO critere(idoffre, idcritere, libellecritere, coeffpond) VALUES(" + unIdOffre + "," + unIdCritere + ", '" + unLibel + "'," + unCoef + ");", conn());
+            NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO critere(idoffre, libellecritere, coeffpond) VALUES(" + unIdOffre + ", '" + unLibel + "'," + unCoef + ");", conn());
             cmd.ExecuteNonQuery();
             conn().Close();
         }
@@ -67,6 +67,16 @@ namespace ClassBDD
                 count = 0;
             }
             return count;
+        }
+
+        public DateTime DateTimeOffre(int idOffre)
+        {
+            DateTime date = DateTime.Now;
+            NpgsqlCommand command = new NpgsqlCommand("SELECT datelimiteeval FROM public.offre_d_emploi WHERE idoffre ="+idOffre, conn());
+            NpgsqlDataReader dr = command.ExecuteReader();
+            while(dr.Read())
+                date = DateTime.Parse(dr[0].ToString());
+            return date;
         }
 
         /// <summary>

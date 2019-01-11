@@ -38,10 +38,7 @@
             this.cmbChoixOffre = new System.Windows.Forms.ComboBox();
             this.lblNomCritere = new System.Windows.Forms.Label();
             this.lblCoeffCritere = new System.Windows.Forms.Label();
-            this.lblIdCritere = new System.Windows.Forms.Label();
-            this.nbIdCritere = new System.Windows.Forms.NumericUpDown();
             this.nbCoefCritere = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.nbIdCritere)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbCoefCritere)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,23 +138,6 @@
             this.lblCoeffCritere.TabIndex = 14;
             this.lblCoeffCritere.Text = "Coefficient critère";
             // 
-            // lblIdCritere
-            // 
-            this.lblIdCritere.AutoSize = true;
-            this.lblIdCritere.Location = new System.Drawing.Point(305, 210);
-            this.lblIdCritere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblIdCritere.Name = "lblIdCritere";
-            this.lblIdCritere.Size = new System.Drawing.Size(65, 17);
-            this.lblIdCritere.TabIndex = 16;
-            this.lblIdCritere.Text = "ID critère";
-            // 
-            // nbIdCritere
-            // 
-            this.nbIdCritere.Location = new System.Drawing.Point(308, 240);
-            this.nbIdCritere.Name = "nbIdCritere";
-            this.nbIdCritere.Size = new System.Drawing.Size(201, 22);
-            this.nbIdCritere.TabIndex = 18;
-            // 
             // nbCoefCritere
             // 
             this.nbCoefCritere.Location = new System.Drawing.Point(309, 347);
@@ -171,8 +151,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.nbCoefCritere);
-            this.Controls.Add(this.nbIdCritere);
-            this.Controls.Add(this.lblIdCritere);
             this.Controls.Add(this.lblCoeffCritere);
             this.Controls.Add(this.lblNomCritere);
             this.Controls.Add(this.cmbChoixOffre);
@@ -187,7 +165,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nbIdCritere)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbCoefCritere)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -206,8 +183,6 @@
         private System.Windows.Forms.ComboBox cmbChoixOffre;
         private System.Windows.Forms.Label lblNomCritere;
         private System.Windows.Forms.Label lblCoeffCritere;
-        private System.Windows.Forms.Label lblIdCritere;
-        private System.Windows.Forms.NumericUpDown nbIdCritere;
         private System.Windows.Forms.NumericUpDown nbCoefCritere;
     }
 }
