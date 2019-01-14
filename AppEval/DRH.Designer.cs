@@ -1,6 +1,6 @@
 ﻿namespace AppEval
 {
-    partial class Form1
+    partial class DRH
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -39,12 +39,14 @@
             this.lblCoeffCritere = new System.Windows.Forms.Label();
             this.nbCoefCritere = new System.Windows.Forms.NumericUpDown();
             this.DRHGroup = new System.Windows.Forms.GroupBox();
-            this.btnAjouter = new System.Windows.Forms.Button();
-            this.btnModifier = new System.Windows.Forms.Button();
-            this.btnSupprimer = new System.Windows.Forms.Button();
+            this.grpAdd = new System.Windows.Forms.GroupBox();
             this.lstCriteres = new System.Windows.Forms.ListBox();
+            this.btnSupprimer = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
+            this.btnAjouter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nbCoefCritere)).BeginInit();
             this.DRHGroup.SuspendLayout();
+            this.grpAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblChoixOffre
@@ -79,7 +81,7 @@
             // 
             // btnAjouterCritere
             // 
-            this.btnAjouterCritere.Location = new System.Drawing.Point(501, 367);
+            this.btnAjouterCritere.Location = new System.Drawing.Point(54, 134);
             this.btnAjouterCritere.Margin = new System.Windows.Forms.Padding(4);
             this.btnAjouterCritere.Name = "btnAjouterCritere";
             this.btnAjouterCritere.Size = new System.Drawing.Size(201, 30);
@@ -90,7 +92,7 @@
             // 
             // txtNomCritere
             // 
-            this.txtNomCritere.Location = new System.Drawing.Point(501, 276);
+            this.txtNomCritere.Location = new System.Drawing.Point(54, 43);
             this.txtNomCritere.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomCritere.Name = "txtNomCritere";
             this.txtNomCritere.Size = new System.Drawing.Size(200, 22);
@@ -117,7 +119,7 @@
             // lblNomCritere
             // 
             this.lblNomCritere.AutoSize = true;
-            this.lblNomCritere.Location = new System.Drawing.Point(497, 256);
+            this.lblNomCritere.Location = new System.Drawing.Point(50, 23);
             this.lblNomCritere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNomCritere.Name = "lblNomCritere";
             this.lblNomCritere.Size = new System.Drawing.Size(81, 17);
@@ -127,7 +129,7 @@
             // lblCoeffCritere
             // 
             this.lblCoeffCritere.AutoSize = true;
-            this.lblCoeffCritere.Location = new System.Drawing.Point(497, 315);
+            this.lblCoeffCritere.Location = new System.Drawing.Point(50, 82);
             this.lblCoeffCritere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCoeffCritere.Name = "lblCoeffCritere";
             this.lblCoeffCritere.Size = new System.Drawing.Size(118, 17);
@@ -136,52 +138,52 @@
             // 
             // nbCoefCritere
             // 
-            this.nbCoefCritere.Location = new System.Drawing.Point(501, 336);
+            this.nbCoefCritere.Location = new System.Drawing.Point(54, 103);
             this.nbCoefCritere.Name = "nbCoefCritere";
             this.nbCoefCritere.Size = new System.Drawing.Size(201, 22);
             this.nbCoefCritere.TabIndex = 19;
             // 
             // DRHGroup
             // 
+            this.DRHGroup.Controls.Add(this.grpAdd);
             this.DRHGroup.Controls.Add(this.lstCriteres);
             this.DRHGroup.Controls.Add(this.btnSupprimer);
             this.DRHGroup.Controls.Add(this.btnModifier);
             this.DRHGroup.Controls.Add(this.btnAjouter);
-            this.DRHGroup.Controls.Add(this.nbCoefCritere);
             this.DRHGroup.Controls.Add(this.lblChoixOffre);
-            this.DRHGroup.Controls.Add(this.lblCoeffCritere);
             this.DRHGroup.Controls.Add(this.lblExpirationOffre);
-            this.DRHGroup.Controls.Add(this.lblNomCritere);
             this.DRHGroup.Controls.Add(this.lblListeCriteres);
             this.DRHGroup.Controls.Add(this.cmbChoixOffre);
-            this.DRHGroup.Controls.Add(this.btnAjouterCritere);
             this.DRHGroup.Controls.Add(this.txtExpirationOffre);
-            this.DRHGroup.Controls.Add(this.txtNomCritere);
             this.DRHGroup.Location = new System.Drawing.Point(12, 12);
             this.DRHGroup.Name = "DRHGroup";
-            this.DRHGroup.Size = new System.Drawing.Size(799, 451);
+            this.DRHGroup.Size = new System.Drawing.Size(790, 451);
             this.DRHGroup.TabIndex = 20;
             this.DRHGroup.TabStop = false;
             this.DRHGroup.Text = "DRH";
             // 
-            // btnAjouter
+            // grpAdd
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(255, 246);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(168, 52);
-            this.btnAjouter.TabIndex = 20;
-            this.btnAjouter.Text = "Ajouter";
-            this.btnAjouter.UseVisualStyleBackColor = true;
-            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            this.grpAdd.Controls.Add(this.lblNomCritere);
+            this.grpAdd.Controls.Add(this.txtNomCritere);
+            this.grpAdd.Controls.Add(this.btnAjouterCritere);
+            this.grpAdd.Controls.Add(this.lblCoeffCritere);
+            this.grpAdd.Controls.Add(this.nbCoefCritere);
+            this.grpAdd.Location = new System.Drawing.Point(474, 241);
+            this.grpAdd.Name = "grpAdd";
+            this.grpAdd.Size = new System.Drawing.Size(295, 185);
+            this.grpAdd.TabIndex = 24;
+            this.grpAdd.TabStop = false;
+            this.grpAdd.Text = "Ajouter / Modifier Offre";
             // 
-            // btnModifier
+            // lstCriteres
             // 
-            this.btnModifier.Location = new System.Drawing.Point(255, 309);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(168, 52);
-            this.btnModifier.TabIndex = 21;
-            this.btnModifier.Text = "Modifier";
-            this.btnModifier.UseVisualStyleBackColor = true;
+            this.lstCriteres.FormattingEnabled = true;
+            this.lstCriteres.ItemHeight = 16;
+            this.lstCriteres.Location = new System.Drawing.Point(17, 246);
+            this.lstCriteres.Name = "lstCriteres";
+            this.lstCriteres.Size = new System.Drawing.Size(185, 180);
+            this.lstCriteres.TabIndex = 23;
             // 
             // btnSupprimer
             // 
@@ -193,28 +195,41 @@
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
-            // lstCriteres
+            // btnModifier
             // 
-            this.lstCriteres.FormattingEnabled = true;
-            this.lstCriteres.ItemHeight = 16;
-            this.lstCriteres.Location = new System.Drawing.Point(17, 246);
-            this.lstCriteres.Name = "lstCriteres";
-            this.lstCriteres.Size = new System.Drawing.Size(185, 180);
-            this.lstCriteres.TabIndex = 23;
+            this.btnModifier.Location = new System.Drawing.Point(255, 309);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(168, 52);
+            this.btnModifier.TabIndex = 21;
+            this.btnModifier.Text = "Modifier";
+            this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
-            // Form1
+            // btnAjouter
+            // 
+            this.btnAjouter.Location = new System.Drawing.Point(255, 246);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(168, 52);
+            this.btnAjouter.TabIndex = 20;
+            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
+            // DRH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1251, 554);
+            this.ClientSize = new System.Drawing.Size(813, 471);
             this.Controls.Add(this.DRHGroup);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "DRH";
+            this.Text = "DRH";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nbCoefCritere)).EndInit();
             this.DRHGroup.ResumeLayout(false);
             this.DRHGroup.PerformLayout();
+            this.grpAdd.ResumeLayout(false);
+            this.grpAdd.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -236,6 +251,7 @@
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.GroupBox grpAdd;
     }
 }
 

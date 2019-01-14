@@ -56,6 +56,13 @@ namespace ClassBDD
             conn().Close();
         }
 
+        public void ModifCritereSQL(int unIdOffre, string unLibel, string newLibel, int newCoef)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand("UPDATE critere SET libellecritere = '"+ newLibel + "', coeffpond = " + newCoef+"WHERE idOffre = " + unIdOffre + " AND libellecritere = '" + unLibel + "'", conn());
+            cmd.ExecuteNonQuery();
+            conn().Close();
+        }
+
         /// <summary>
         /// 
         /// </summary>
