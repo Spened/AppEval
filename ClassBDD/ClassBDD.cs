@@ -44,7 +44,7 @@ namespace ClassBDD
 
         public void AjoutCritereSQL(int unIdOffre, string unLibel, int unCoef)
         {
-            NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO critere(idoffre, libellecritere, coeffpond) VALUES(" + unIdOffre + ", '" + unLibel + "'," + unCoef + ");", conn());
+            NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO critere(idcritere, idoffre, libellecritere, coeffpond) VALUES( nextval('critere_idcritere_seq') , " + unIdOffre + ", '" + unLibel + "'," + unCoef + ");", conn());
             cmd.ExecuteNonQuery();
             conn().Close();
         }
