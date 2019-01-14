@@ -39,13 +39,16 @@
             this.lblNomCritere = new System.Windows.Forms.Label();
             this.lblCoeffCritere = new System.Windows.Forms.Label();
             this.nbCoefCritere = new System.Windows.Forms.NumericUpDown();
+            this.DRHGroup = new System.Windows.Forms.GroupBox();
+            this.RHGroup = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.nbCoefCritere)).BeginInit();
+            this.DRHGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblChoixOffre
             // 
             this.lblChoixOffre.AutoSize = true;
-            this.lblChoixOffre.Location = new System.Drawing.Point(68, 50);
+            this.lblChoixOffre.Location = new System.Drawing.Point(14, 58);
             this.lblChoixOffre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChoixOffre.Name = "lblChoixOffre";
             this.lblChoixOffre.Size = new System.Drawing.Size(109, 17);
@@ -55,7 +58,7 @@
             // lblExpirationOffre
             // 
             this.lblExpirationOffre.AutoSize = true;
-            this.lblExpirationOffre.Location = new System.Drawing.Point(68, 114);
+            this.lblExpirationOffre.Location = new System.Drawing.Point(14, 122);
             this.lblExpirationOffre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExpirationOffre.Name = "lblExpirationOffre";
             this.lblExpirationOffre.Size = new System.Drawing.Size(181, 17);
@@ -65,7 +68,7 @@
             // lblListeCriteres
             // 
             this.lblListeCriteres.AutoSize = true;
-            this.lblListeCriteres.Location = new System.Drawing.Point(68, 187);
+            this.lblListeCriteres.Location = new System.Drawing.Point(14, 195);
             this.lblListeCriteres.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblListeCriteres.Name = "lblListeCriteres";
             this.lblListeCriteres.Size = new System.Drawing.Size(124, 17);
@@ -74,7 +77,7 @@
             // 
             // btnAjouterCritere
             // 
-            this.btnAjouterCritere.Location = new System.Drawing.Point(309, 378);
+            this.btnAjouterCritere.Location = new System.Drawing.Point(255, 386);
             this.btnAjouterCritere.Margin = new System.Windows.Forms.Padding(4);
             this.btnAjouterCritere.Name = "btnAjouterCritere";
             this.btnAjouterCritere.Size = new System.Drawing.Size(201, 30);
@@ -85,7 +88,7 @@
             // 
             // lstCriteres
             // 
-            this.lstCriteres.Location = new System.Drawing.Point(72, 240);
+            this.lstCriteres.Location = new System.Drawing.Point(18, 248);
             this.lstCriteres.Margin = new System.Windows.Forms.Padding(4);
             this.lstCriteres.Name = "lstCriteres";
             this.lstCriteres.Size = new System.Drawing.Size(175, 166);
@@ -94,7 +97,7 @@
             // 
             // txtNomCritere
             // 
-            this.txtNomCritere.Location = new System.Drawing.Point(309, 287);
+            this.txtNomCritere.Location = new System.Drawing.Point(255, 295);
             this.txtNomCritere.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomCritere.Name = "txtNomCritere";
             this.txtNomCritere.Size = new System.Drawing.Size(200, 22);
@@ -102,7 +105,7 @@
             // 
             // txtExpirationOffre
             // 
-            this.txtExpirationOffre.Location = new System.Drawing.Point(309, 111);
+            this.txtExpirationOffre.Location = new System.Drawing.Point(255, 119);
             this.txtExpirationOffre.Margin = new System.Windows.Forms.Padding(4);
             this.txtExpirationOffre.Name = "txtExpirationOffre";
             this.txtExpirationOffre.Size = new System.Drawing.Size(300, 22);
@@ -111,7 +114,7 @@
             // cmbChoixOffre
             // 
             this.cmbChoixOffre.FormattingEnabled = true;
-            this.cmbChoixOffre.Location = new System.Drawing.Point(309, 47);
+            this.cmbChoixOffre.Location = new System.Drawing.Point(255, 55);
             this.cmbChoixOffre.Margin = new System.Windows.Forms.Padding(4);
             this.cmbChoixOffre.Name = "cmbChoixOffre";
             this.cmbChoixOffre.Size = new System.Drawing.Size(300, 24);
@@ -121,7 +124,7 @@
             // lblNomCritere
             // 
             this.lblNomCritere.AutoSize = true;
-            this.lblNomCritere.Location = new System.Drawing.Point(305, 267);
+            this.lblNomCritere.Location = new System.Drawing.Point(251, 275);
             this.lblNomCritere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNomCritere.Name = "lblNomCritere";
             this.lblNomCritere.Size = new System.Drawing.Size(81, 17);
@@ -131,7 +134,7 @@
             // lblCoeffCritere
             // 
             this.lblCoeffCritere.AutoSize = true;
-            this.lblCoeffCritere.Location = new System.Drawing.Point(305, 326);
+            this.lblCoeffCritere.Location = new System.Drawing.Point(251, 334);
             this.lblCoeffCritere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCoeffCritere.Name = "lblCoeffCritere";
             this.lblCoeffCritere.Size = new System.Drawing.Size(118, 17);
@@ -140,34 +143,55 @@
             // 
             // nbCoefCritere
             // 
-            this.nbCoefCritere.Location = new System.Drawing.Point(309, 347);
+            this.nbCoefCritere.Location = new System.Drawing.Point(255, 355);
             this.nbCoefCritere.Name = "nbCoefCritere";
             this.nbCoefCritere.Size = new System.Drawing.Size(201, 22);
             this.nbCoefCritere.TabIndex = 19;
+            // 
+            // DRHGroup
+            // 
+            this.DRHGroup.Controls.Add(this.lstCriteres);
+            this.DRHGroup.Controls.Add(this.nbCoefCritere);
+            this.DRHGroup.Controls.Add(this.lblChoixOffre);
+            this.DRHGroup.Controls.Add(this.lblCoeffCritere);
+            this.DRHGroup.Controls.Add(this.lblExpirationOffre);
+            this.DRHGroup.Controls.Add(this.lblNomCritere);
+            this.DRHGroup.Controls.Add(this.lblListeCriteres);
+            this.DRHGroup.Controls.Add(this.cmbChoixOffre);
+            this.DRHGroup.Controls.Add(this.btnAjouterCritere);
+            this.DRHGroup.Controls.Add(this.txtExpirationOffre);
+            this.DRHGroup.Controls.Add(this.txtNomCritere);
+            this.DRHGroup.Location = new System.Drawing.Point(12, 12);
+            this.DRHGroup.Name = "DRHGroup";
+            this.DRHGroup.Size = new System.Drawing.Size(569, 451);
+            this.DRHGroup.TabIndex = 20;
+            this.DRHGroup.TabStop = false;
+            this.DRHGroup.Text = "DRH";
+            // 
+            // RHGroup
+            // 
+            this.RHGroup.Location = new System.Drawing.Point(599, 13);
+            this.RHGroup.Name = "RHGroup";
+            this.RHGroup.Size = new System.Drawing.Size(600, 450);
+            this.RHGroup.TabIndex = 21;
+            this.RHGroup.TabStop = false;
+            this.RHGroup.Text = "RH";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.nbCoefCritere);
-            this.Controls.Add(this.lblCoeffCritere);
-            this.Controls.Add(this.lblNomCritere);
-            this.Controls.Add(this.cmbChoixOffre);
-            this.Controls.Add(this.txtExpirationOffre);
-            this.Controls.Add(this.txtNomCritere);
-            this.Controls.Add(this.lstCriteres);
-            this.Controls.Add(this.btnAjouterCritere);
-            this.Controls.Add(this.lblListeCriteres);
-            this.Controls.Add(this.lblExpirationOffre);
-            this.Controls.Add(this.lblChoixOffre);
+            this.ClientSize = new System.Drawing.Size(1251, 554);
+            this.Controls.Add(this.RHGroup);
+            this.Controls.Add(this.DRHGroup);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nbCoefCritere)).EndInit();
+            this.DRHGroup.ResumeLayout(false);
+            this.DRHGroup.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -184,6 +208,8 @@
         private System.Windows.Forms.Label lblNomCritere;
         private System.Windows.Forms.Label lblCoeffCritere;
         private System.Windows.Forms.NumericUpDown nbCoefCritere;
+        private System.Windows.Forms.GroupBox DRHGroup;
+        private System.Windows.Forms.GroupBox RHGroup;
     }
 }
 

@@ -72,7 +72,7 @@ namespace ClassBDD
         public DateTime DateTimeOffre(int idOffre)
         {
             DateTime date = DateTime.Now;
-            NpgsqlCommand command = new NpgsqlCommand("SELECT datelimiteeval FROM public.offre_d_emploi WHERE idoffre ="+idOffre, conn());
+            NpgsqlCommand command = new NpgsqlCommand("SELECT DATE(datelimiteeval) FROM public.offre_d_emploi WHERE idoffre ="+idOffre, conn());
             NpgsqlDataReader dr = command.ExecuteReader();
             while(dr.Read())
                 date = DateTime.Parse(dr[0].ToString());
