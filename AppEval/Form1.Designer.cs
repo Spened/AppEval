@@ -32,7 +32,6 @@
             this.lblExpirationOffre = new System.Windows.Forms.Label();
             this.lblListeCriteres = new System.Windows.Forms.Label();
             this.btnAjouterCritere = new System.Windows.Forms.Button();
-            this.lstCriteres = new System.Windows.Forms.ListView();
             this.txtNomCritere = new System.Windows.Forms.TextBox();
             this.txtExpirationOffre = new System.Windows.Forms.TextBox();
             this.cmbChoixOffre = new System.Windows.Forms.ComboBox();
@@ -40,7 +39,10 @@
             this.lblCoeffCritere = new System.Windows.Forms.Label();
             this.nbCoefCritere = new System.Windows.Forms.NumericUpDown();
             this.DRHGroup = new System.Windows.Forms.GroupBox();
-            this.RHGroup = new System.Windows.Forms.GroupBox();
+            this.btnAjouter = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
+            this.btnSupprimer = new System.Windows.Forms.Button();
+            this.lstCriteres = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.nbCoefCritere)).BeginInit();
             this.DRHGroup.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +79,7 @@
             // 
             // btnAjouterCritere
             // 
-            this.btnAjouterCritere.Location = new System.Drawing.Point(255, 386);
+            this.btnAjouterCritere.Location = new System.Drawing.Point(501, 367);
             this.btnAjouterCritere.Margin = new System.Windows.Forms.Padding(4);
             this.btnAjouterCritere.Name = "btnAjouterCritere";
             this.btnAjouterCritere.Size = new System.Drawing.Size(201, 30);
@@ -86,18 +88,9 @@
             this.btnAjouterCritere.UseVisualStyleBackColor = true;
             this.btnAjouterCritere.Click += new System.EventHandler(this.btnAjouterCritere_Click);
             // 
-            // lstCriteres
-            // 
-            this.lstCriteres.Location = new System.Drawing.Point(18, 248);
-            this.lstCriteres.Margin = new System.Windows.Forms.Padding(4);
-            this.lstCriteres.Name = "lstCriteres";
-            this.lstCriteres.Size = new System.Drawing.Size(175, 166);
-            this.lstCriteres.TabIndex = 8;
-            this.lstCriteres.UseCompatibleStateImageBehavior = false;
-            // 
             // txtNomCritere
             // 
-            this.txtNomCritere.Location = new System.Drawing.Point(255, 295);
+            this.txtNomCritere.Location = new System.Drawing.Point(501, 276);
             this.txtNomCritere.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomCritere.Name = "txtNomCritere";
             this.txtNomCritere.Size = new System.Drawing.Size(200, 22);
@@ -124,7 +117,7 @@
             // lblNomCritere
             // 
             this.lblNomCritere.AutoSize = true;
-            this.lblNomCritere.Location = new System.Drawing.Point(251, 275);
+            this.lblNomCritere.Location = new System.Drawing.Point(497, 256);
             this.lblNomCritere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNomCritere.Name = "lblNomCritere";
             this.lblNomCritere.Size = new System.Drawing.Size(81, 17);
@@ -134,7 +127,7 @@
             // lblCoeffCritere
             // 
             this.lblCoeffCritere.AutoSize = true;
-            this.lblCoeffCritere.Location = new System.Drawing.Point(251, 334);
+            this.lblCoeffCritere.Location = new System.Drawing.Point(497, 315);
             this.lblCoeffCritere.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCoeffCritere.Name = "lblCoeffCritere";
             this.lblCoeffCritere.Size = new System.Drawing.Size(118, 17);
@@ -143,7 +136,7 @@
             // 
             // nbCoefCritere
             // 
-            this.nbCoefCritere.Location = new System.Drawing.Point(255, 355);
+            this.nbCoefCritere.Location = new System.Drawing.Point(501, 336);
             this.nbCoefCritere.Name = "nbCoefCritere";
             this.nbCoefCritere.Size = new System.Drawing.Size(201, 22);
             this.nbCoefCritere.TabIndex = 19;
@@ -151,6 +144,9 @@
             // DRHGroup
             // 
             this.DRHGroup.Controls.Add(this.lstCriteres);
+            this.DRHGroup.Controls.Add(this.btnSupprimer);
+            this.DRHGroup.Controls.Add(this.btnModifier);
+            this.DRHGroup.Controls.Add(this.btnAjouter);
             this.DRHGroup.Controls.Add(this.nbCoefCritere);
             this.DRHGroup.Controls.Add(this.lblChoixOffre);
             this.DRHGroup.Controls.Add(this.lblCoeffCritere);
@@ -163,26 +159,54 @@
             this.DRHGroup.Controls.Add(this.txtNomCritere);
             this.DRHGroup.Location = new System.Drawing.Point(12, 12);
             this.DRHGroup.Name = "DRHGroup";
-            this.DRHGroup.Size = new System.Drawing.Size(569, 451);
+            this.DRHGroup.Size = new System.Drawing.Size(799, 451);
             this.DRHGroup.TabIndex = 20;
             this.DRHGroup.TabStop = false;
             this.DRHGroup.Text = "DRH";
             // 
-            // RHGroup
+            // btnAjouter
             // 
-            this.RHGroup.Location = new System.Drawing.Point(599, 13);
-            this.RHGroup.Name = "RHGroup";
-            this.RHGroup.Size = new System.Drawing.Size(600, 450);
-            this.RHGroup.TabIndex = 21;
-            this.RHGroup.TabStop = false;
-            this.RHGroup.Text = "RH";
+            this.btnAjouter.Location = new System.Drawing.Point(255, 246);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(168, 52);
+            this.btnAjouter.TabIndex = 20;
+            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
+            // btnModifier
+            // 
+            this.btnModifier.Location = new System.Drawing.Point(255, 309);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(168, 52);
+            this.btnModifier.TabIndex = 21;
+            this.btnModifier.Text = "Modifier";
+            this.btnModifier.UseVisualStyleBackColor = true;
+            // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.Location = new System.Drawing.Point(255, 369);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(168, 52);
+            this.btnSupprimer.TabIndex = 22;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            // 
+            // lstCriteres
+            // 
+            this.lstCriteres.FormattingEnabled = true;
+            this.lstCriteres.ItemHeight = 16;
+            this.lstCriteres.Location = new System.Drawing.Point(17, 246);
+            this.lstCriteres.Name = "lstCriteres";
+            this.lstCriteres.Size = new System.Drawing.Size(185, 180);
+            this.lstCriteres.TabIndex = 23;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1251, 554);
-            this.Controls.Add(this.RHGroup);
             this.Controls.Add(this.DRHGroup);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
@@ -201,7 +225,6 @@
         private System.Windows.Forms.Label lblExpirationOffre;
         private System.Windows.Forms.Label lblListeCriteres;
         private System.Windows.Forms.Button btnAjouterCritere;
-        private System.Windows.Forms.ListView lstCriteres;
         private System.Windows.Forms.TextBox txtNomCritere;
         private System.Windows.Forms.TextBox txtExpirationOffre;
         private System.Windows.Forms.ComboBox cmbChoixOffre;
@@ -209,7 +232,10 @@
         private System.Windows.Forms.Label lblCoeffCritere;
         private System.Windows.Forms.NumericUpDown nbCoefCritere;
         private System.Windows.Forms.GroupBox DRHGroup;
-        private System.Windows.Forms.GroupBox RHGroup;
+        private System.Windows.Forms.ListBox lstCriteres;
+        private System.Windows.Forms.Button btnSupprimer;
+        private System.Windows.Forms.Button btnModifier;
+        private System.Windows.Forms.Button btnAjouter;
     }
 }
 

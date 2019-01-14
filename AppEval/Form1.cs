@@ -34,11 +34,21 @@ namespace AppEval
                 txtNomCritere.Enabled = false;
                 btnAjouterCritere.Enabled = false;
             }
+            txtNomCritere.Hide();
+            nbCoefCritere.Hide();
+            btnAjouterCritere.Hide();
+            lblNomCritere.Hide();
+            lblCoeffCritere.Hide();
+            if(lstCriteres.Items.Count == 0)
+            {
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
+            }
         }
 
         private void cmbChoixOffre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lstCriteres.Clear();
+            lstCriteres.Items.Clear();
             txtExpirationOffre.Clear();
             int idOffre = cmbChoixOffre.SelectedIndex + 1;
             ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
@@ -61,16 +71,67 @@ namespace AppEval
                 txtNomCritere.Enabled = false;
                 btnAjouterCritere.Enabled = false;
             }
+            if (lstCriteres.Items.Count == 0)
+            {
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
+            }
+            else
+            {
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+            }
         }
 
         private void btnAjouterCritere_Click(object sender, EventArgs e)
         {
-            lstCriteres.Clear();
+            //ADD Critere
+            lstCriteres.Items.Clear();
             int idOffre = cmbChoixOffre.SelectedIndex + 1;
             ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
             pgsql.AjoutCritereSQL(idOffre, txtNomCritere.Text, (int)nbCoefCritere.Value);
             txtNomCritere.Clear();
             nbCoefCritere.Value = 0;
+            foreach (ClassMetier.Critere critere in pgsql.GetCriteres(cmbChoixOffre.SelectedIndex + 1))
+            {
+                lstCriteres.Items.Add(critere.GetLibel);
+            }
+            //Cacher les options pour ajouter
+            txtNomCritere.Hide();
+            nbCoefCritere.Hide();
+            btnAjouterCritere.Hide();
+            lblNomCritere.Hide();
+            lblCoeffCritere.Hide();
+            //Verifier si des nouveaux critéres ADD
+            if (lstCriteres.Items.Count == 0)
+            {
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
+            }
+            else
+            {
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+            }
+        }
+
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            txtNomCritere.Show();
+            nbCoefCritere.Show();
+            btnAjouterCritere.Show();
+            lblNomCritere.Show();
+            lblCoeffCritere.Show();
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            int idOffre = cmbChoixOffre.SelectedIndex + 1;
+            
+            ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
+            pgsql.SuppCritereSQL(idOffre, lstCriteres.Items[lstCriteres.SelectedIndex].ToString());
+            lstCriteres.Items.Clear();
             foreach (ClassMetier.Critere critere in pgsql.GetCriteres(cmbChoixOffre.SelectedIndex + 1))
             {
                 lstCriteres.Items.Add(critere.GetLibel);

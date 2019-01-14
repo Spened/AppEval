@@ -49,6 +49,13 @@ namespace ClassBDD
             conn().Close();
         }
 
+        public void SuppCritereSQL(int unIdOffre, string unLibel)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM critere WHERE idOffre = " + unIdOffre +" AND libellecritere = '"+ unLibel +"'", conn());
+            cmd.ExecuteNonQuery();
+            conn().Close();
+        }
+
         /// <summary>
         /// 
         /// </summary>
