@@ -22,8 +22,8 @@ namespace AppEval
                 lstOffreEmplois.Items.Add(offre.GetLibel);
             }
 
-            
-            lstOffreEmplois.SelectedIndex = 0;
+            if(pgsql.CountOffres()> 0)
+                lstOffreEmplois.SelectedIndex = 0;
         }
 
         public List<ClassMetier.Critere> lesCriteres()

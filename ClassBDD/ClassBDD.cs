@@ -37,7 +37,7 @@ namespace ClassBDD
 
         public static NpgsqlConnection conn()
         {
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=7777;Database=postgres;User Id=openpg;Password=openpgpwd");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd");
             conn.Open();
             return conn;
         }
@@ -46,6 +46,7 @@ namespace ClassBDD
         {
             NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO critere(idcritere, idoffre, libellecritere, coeffpond) VALUES( nextval('critere_idcritere_seq') , " + unIdOffre + ", '" + unLibel + "'," + unCoef + ");", conn());
             cmd.ExecuteNonQuery();
+            cmd.Cancel();
             conn().Close();
         }
 
@@ -53,6 +54,7 @@ namespace ClassBDD
         {
             NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM critere WHERE idOffre = " + unIdOffre +" AND libellecritere = '"+ unLibel +"'", conn());
             cmd.ExecuteNonQuery();
+            cmd.Cancel();
             conn().Close();
         }
 
@@ -60,6 +62,7 @@ namespace ClassBDD
         {
             NpgsqlCommand cmd = new NpgsqlCommand("UPDATE critere SET libellecritere = '"+ newLibel + "', coeffpond = " + newCoef+"WHERE idOffre = " + unIdOffre + " AND libellecritere = '" + unLibel + "'", conn());
             cmd.ExecuteNonQuery();
+            cmd.Cancel();
             conn().Close();
         }
 
@@ -80,6 +83,7 @@ namespace ClassBDD
             {
                 count = 0;
             }
+            command.Cancel();
             return count;
         }
 
@@ -90,6 +94,7 @@ namespace ClassBDD
             NpgsqlDataReader dr = command.ExecuteReader();
             while(dr.Read())
                 date = DateTime.Parse(dr[0].ToString());
+            command.Cancel();
             return date;
         }
 
@@ -113,6 +118,7 @@ namespace ClassBDD
                 lesOffresEmplois.Add(newOffre);
             }
             conn().Close();
+            command.Cancel();
             return lesOffresEmplois;
         }
 
@@ -128,6 +134,7 @@ namespace ClassBDD
             {
                 count = 0;
             }
+            command.Cancel();
             return count;
         }
 
@@ -149,6 +156,7 @@ namespace ClassBDD
             }
             dr.Close();
             conn().Close();
+            command.Cancel();
             return lesCriteres;
         }
 

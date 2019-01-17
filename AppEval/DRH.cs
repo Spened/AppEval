@@ -40,7 +40,7 @@ namespace AppEval
                 btnModifier.Enabled = false;
                 btnSupprimer.Enabled = false;
             }
-            if(pgsql.CountOffres()> 0)
+            if(cmbChoixOffre.Items.Count > 0)
             {
                 cmbChoixOffre.SelectedIndex = 0;
             }
