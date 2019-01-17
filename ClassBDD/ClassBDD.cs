@@ -74,7 +74,7 @@ namespace ClassBDD
         public int CountCritere(int idOffre)
         {
             int count = 0;
-            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.critere WHERE idoffre ="+idOffre, conn());
+            NpgsqlCommand command = new NpgsqlCommand("SELECT COUNT(idcritere) FROM public.critere WHERE idoffre ="+idOffre, conn());
             try
             {
                 count = (int)command.ExecuteScalar();
@@ -161,8 +161,11 @@ namespace ClassBDD
         }
 
         public void InsertNote(int idOffre, int idCritere)
-        {  
-
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO public.noter(idoffre , idcritere, idevaluation, coeffpond) VALUES("+idOffre+","+idCritere, conn());
+            cmd.ExecuteNonQuery();
+            cmd.Cancel();
+            conn().Close();
         }
     }
 }

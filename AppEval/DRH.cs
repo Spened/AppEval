@@ -27,7 +27,7 @@ namespace AppEval
                 cmbChoixOffre.Items.Add(offre.GetLibel);
             }
             nbCoefCritere.Value = 0;
-            if(cmbChoixOffre.SelectedIndex < 0)
+            if (cmbChoixOffre.SelectedIndex < 0)
             {
                 lstCriteres.Enabled = false;
                 nbCoefCritere.Enabled = false;
@@ -35,16 +35,16 @@ namespace AppEval
                 btnAjouterCritere.Enabled = false;
             }
             grpAdd.Hide();
-            if(lstCriteres.Items.Count == 0)
+            if (lstCriteres.Items.Count == 0)
             {
                 btnModifier.Enabled = false;
                 btnSupprimer.Enabled = false;
             }
-            if(cmbChoixOffre.Items.Count > 0)
+            if (cmbChoixOffre.Items.Count > 0)
             {
                 cmbChoixOffre.SelectedIndex = 0;
             }
-            
+
         }
 
         private void cmbChoixOffre_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace AppEval
                     lstCriteres.Items.Add(critere.GetLibel);
                 }
             }
-               
+
         }
 
 
@@ -150,11 +150,6 @@ namespace AppEval
         {
             grpAdd.Show();
             btnAjouterCritere.Text = "Modifier le critère";
-        }
-
-        private void DRHGroup_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
