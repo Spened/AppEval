@@ -155,7 +155,6 @@
             this.DRHGroup.TabIndex = 20;
             this.DRHGroup.TabStop = false;
             this.DRHGroup.Text = "DRH";
-            this.DRHGroup.Enter += new System.EventHandler(this.DRHGroup_Enter);
             // 
             // grpAdd
             // 

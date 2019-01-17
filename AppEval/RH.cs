@@ -16,7 +16,8 @@ namespace AppEval
         {
             InitializeComponent();
             ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
-            grpEval.Hide();
+            grpNote.Hide();
+            grpFinal.Hide();
             foreach (ClassMetier.OffreEmplois offre in pgsql.GetOffreEmplois())
             {
                 lstOffreEmplois.Items.Add(offre.GetLibel);
@@ -55,7 +56,7 @@ namespace AppEval
             }
             else
             {
-                grpEval.Hide();
+                grpNote.Hide();
             }
         }
 
@@ -69,7 +70,7 @@ namespace AppEval
             idOffre = lstOffreEmplois.SelectedIndex + 1;
             if (lstCritere.Items.Count > 0)
             {
-                grpEval.Show();
+                grpNote.Show();
                 foreach(ClassMetier.Critere c in lesCriteres())
                 {
                     if (c.GetIdOffre == idOffre && c.GetLibel == lstCritere.Text)
@@ -83,6 +84,7 @@ namespace AppEval
         private void btnValider_Click(object sender, EventArgs e)
         {
             ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
+
 
         }
     }
