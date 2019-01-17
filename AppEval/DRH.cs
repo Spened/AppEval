@@ -151,5 +151,10 @@ namespace AppEval
             grpAdd.Show();
             btnAjouterCritere.Text = "Modifier le critère";
         }
+
+        private void DRHGroup_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
