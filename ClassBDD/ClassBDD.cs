@@ -116,6 +116,21 @@ namespace ClassBDD
             return lesOffresEmplois;
         }
 
+        public int CountOffres()
+        {
+            int count = 0;
+            NpgsqlCommand command = new NpgsqlCommand("SELECT COUNT(*) FROM public.offre_d_emploi" , conn());
+            try
+            {
+                count = (int)command.ExecuteScalar();
+            }
+            catch
+            {
+                count = 0;
+            }
+            return count;
+        }
+
         public List<ClassMetier.Critere> GetCriteres(int idOffre)
         {
             List<ClassMetier.Critere> lesCriteres = new List<ClassMetier.Critere>();
@@ -135,6 +150,11 @@ namespace ClassBDD
             dr.Close();
             conn().Close();
             return lesCriteres;
+        }
+
+        public void InsertNote(int idOffre, int idCritere)
+        {  
+
         }
     }
 }
