@@ -40,7 +40,11 @@ namespace AppEval
                 btnModifier.Enabled = false;
                 btnSupprimer.Enabled = false;
             }
-            cmbChoixOffre.SelectedIndex = 0;
+            if(pgsql.CountOffres()> 0)
+            {
+                cmbChoixOffre.SelectedIndex = 0;
+            }
+            
         }
 
         private void cmbChoixOffre_SelectedIndexChanged(object sender, EventArgs e)
