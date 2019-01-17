@@ -99,6 +99,9 @@
     <Compile Include="RH.Designer.cs">
       <DependentUpon>RH.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Connexion.resx">
+      <DependentUpon>Connexion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DRH.resx">
       <DependentUpon>DRH.cs</DependentUpon>
     </EmbeddedResource>
