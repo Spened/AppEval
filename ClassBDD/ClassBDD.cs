@@ -35,6 +35,10 @@ namespace ClassBDD
             return str;
         }
 
+        /// <summary>
+        /// Connextion BDD
+        /// </summary>
+        /// <returns></returns>
         public static NpgsqlConnection conn()
         {
             NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd");
@@ -42,6 +46,12 @@ namespace ClassBDD
             return conn;
         }
 
+        /// <summary>
+        /// Ajout d'un critère dans la BDD
+        /// </summary>
+        /// <param name="unIdOffre"></param>
+        /// <param name="unLibel"></param>
+        /// <param name="unCoef"></param>
         public void AjoutCritereSQL(int unIdOffre, string unLibel, int unCoef)
         {
             NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO critere(idcritere, idoffre, libellecritere, coeffpond) VALUES( nextval('critere_idcritere_seq') , " + unIdOffre + ", '" + unLibel + "'," + unCoef + ");", conn());
@@ -50,6 +60,11 @@ namespace ClassBDD
             conn().Close();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="unIdOffre"></param>
+        /// <param name="unLibel"></param>
         public void SuppCritereSQL(int unIdOffre, string unLibel)
         {
             NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM critere WHERE idOffre = " + unIdOffre +" AND libellecritere = '"+ unLibel +"'", conn());

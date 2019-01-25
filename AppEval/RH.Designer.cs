@@ -33,8 +33,8 @@
             this.btnValider = new System.Windows.Forms.Button();
             this.lblBonus = new System.Windows.Forms.Label();
             this.lblCommentaire = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.txtCommentaire = new System.Windows.Forms.TextBox();
+            this.numBonus = new System.Windows.Forms.NumericUpDown();
             this.grpCandidats = new System.Windows.Forms.GroupBox();
             this.lstCandidats = new System.Windows.Forms.ListBox();
             this.lblConnexion = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.lstOffreEmplois = new System.Windows.Forms.ListBox();
             this.grpRH.SuspendLayout();
             this.grpFinal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBonus)).BeginInit();
             this.grpCandidats.SuspendLayout();
             this.grpNote.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numNote)).BeginInit();
@@ -79,8 +79,8 @@
             this.grpFinal.Controls.Add(this.btnValider);
             this.grpFinal.Controls.Add(this.lblBonus);
             this.grpFinal.Controls.Add(this.lblCommentaire);
-            this.grpFinal.Controls.Add(this.textBox1);
-            this.grpFinal.Controls.Add(this.numericUpDown2);
+            this.grpFinal.Controls.Add(this.txtCommentaire);
+            this.grpFinal.Controls.Add(this.numBonus);
             this.grpFinal.Location = new System.Drawing.Point(844, 214);
             this.grpFinal.Name = "grpFinal";
             this.grpFinal.Size = new System.Drawing.Size(290, 260);
@@ -96,6 +96,7 @@
             this.btnValider.TabIndex = 7;
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click_1);
             // 
             // lblBonus
             // 
@@ -115,20 +116,20 @@
             this.lblCommentaire.TabIndex = 5;
             this.lblCommentaire.Text = "Commentaire";
             // 
-            // textBox1
+            // txtCommentaire
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 45);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 136);
-            this.textBox1.TabIndex = 4;
+            this.txtCommentaire.Location = new System.Drawing.Point(6, 45);
+            this.txtCommentaire.Multiline = true;
+            this.txtCommentaire.Name = "txtCommentaire";
+            this.txtCommentaire.Size = new System.Drawing.Size(278, 136);
+            this.txtCommentaire.TabIndex = 4;
             // 
-            // numericUpDown2
+            // numBonus
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(125, 204);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(48, 22);
-            this.numericUpDown2.TabIndex = 3;
+            this.numBonus.Location = new System.Drawing.Point(125, 204);
+            this.numBonus.Name = "numBonus";
+            this.numBonus.Size = new System.Drawing.Size(48, 22);
+            this.numBonus.TabIndex = 3;
             // 
             // grpCandidats
             // 
@@ -274,7 +275,7 @@
             this.grpRH.PerformLayout();
             this.grpFinal.ResumeLayout(false);
             this.grpFinal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBonus)).EndInit();
             this.grpCandidats.ResumeLayout(false);
             this.grpNote.ResumeLayout(false);
             this.grpNote.PerformLayout();
@@ -307,7 +308,7 @@
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.Label lblBonus;
         private System.Windows.Forms.Label lblCommentaire;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.TextBox txtCommentaire;
+        private System.Windows.Forms.NumericUpDown numBonus;
     }
 }
