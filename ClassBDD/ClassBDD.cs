@@ -37,7 +37,7 @@ namespace ClassBDD
 
         public static NpgsqlConnection conn()
         {
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database=mission2;User Id=openpg;Password=openpgpwd");
             conn.Open();
             return conn;
         }
