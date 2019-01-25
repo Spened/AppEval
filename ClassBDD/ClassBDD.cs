@@ -61,7 +61,7 @@ namespace ClassBDD
         }
 
         /// <summary>
-        /// 
+        /// Suppression d'un critère dans la BDD
         /// </summary>
         /// <param name="unIdOffre"></param>
         /// <param name="unLibel"></param>
@@ -73,6 +73,13 @@ namespace ClassBDD
             conn().Close();
         }
 
+        /// <summary>
+        /// Modifications d'un critère dans la BDD
+        /// </summary>
+        /// <param name="unIdOffre"></param>
+        /// <param name="unLibel"></param>
+        /// <param name="newLibel"></param>
+        /// <param name="newCoef"></param>
         public void ModifCritereSQL(int unIdOffre, string unLibel, string newLibel, int newCoef)
         {
             NpgsqlCommand cmd = new NpgsqlCommand("UPDATE critere SET libellecritere = '"+ newLibel + "', coeffpond = " + newCoef+"WHERE idOffre = " + unIdOffre + " AND libellecritere = '" + unLibel + "'", conn());
@@ -81,6 +88,12 @@ namespace ClassBDD
             conn().Close();
         }
 
+        /// <summary>
+        /// Obtention de l'ID d'un critère de la BDD
+        /// </summary>
+        /// <param name="idOffre"></param>
+        /// <param name="unLibel"></param>
+        /// <returns></returns>
         public int GetIdCritereSQL(int idOffre, string unLibel)
         {
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT libellecritere FROM critere WHERE idOffre = " + idOffre + " AND libellecritere = '" + unLibel + "'", conn());
@@ -91,7 +104,7 @@ namespace ClassBDD
         }
 
         /// <summary>
-        /// 
+        /// Compteur des critères dans la BDD
         /// </summary>
         /// <param name="idOffre"></param>
         /// <returns></returns>
@@ -111,6 +124,11 @@ namespace ClassBDD
             return count;
         }
 
+        /// <summary>
+        /// Retourne la date limite pour postuler à l'offre
+        /// </summary>
+        /// <param name="idOffre"></param>
+        /// <returns></returns>
         public DateTime DateTimeOffre(int idOffre)
         {
             DateTime date = DateTime.Now;
@@ -123,7 +141,7 @@ namespace ClassBDD
         }
 
         /// <summary>
-        /// 
+        /// Recupère les offres d'emplois
         /// </summary>
         /// <returns></returns>
         public List<ClassMetier.OffreEmplois> GetOffreEmplois()
@@ -146,6 +164,10 @@ namespace ClassBDD
             return lesOffresEmplois;
         }
 
+        /// <summary>
+        /// Compteur des offres d'emplois
+        /// </summary>
+        /// <returns></returns>
         public int CountOffres()
         {
             int count = 0;
@@ -162,6 +184,11 @@ namespace ClassBDD
             return count;
         }
 
+        /// <summary>
+        /// Retourne les critères d'une offre
+        /// </summary>
+        /// <param name="idOffre"></param>
+        /// <returns></returns>
         public List<ClassMetier.Critere> GetCriteres(int idOffre)
         {
             List<ClassMetier.Critere> lesCriteres = new List<ClassMetier.Critere>();
@@ -184,6 +211,11 @@ namespace ClassBDD
             return lesCriteres;
         }
 
+        /// <summary>
+        /// Insertion d'une note un critère
+        /// </summary>
+        /// <param name="idOffre"></param>
+        /// <param name="idCritere"></param>
         public void InsertNote(int idOffre, int idCritere)
         {
             NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO public.noter(idoffre , idcritere, idevaluation, coeffpond) VALUES("+idOffre+","+idCritere, conn());
@@ -192,6 +224,11 @@ namespace ClassBDD
             conn().Close();
         }
 
+        /// <summary>
+        /// Retourne les candidats pour une offre d'emploi
+        /// </summary>
+        /// <param name="idOffre"></param>
+        /// <returns></returns>
         public List<ClassMetier.Candidature> getCandidatOffre(int idOffre)
         {
             List<ClassMetier.Candidature> lesCandidatures = new List<ClassMetier.Candidature>();
