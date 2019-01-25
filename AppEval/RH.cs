@@ -13,7 +13,7 @@ namespace AppEval
     public partial class RH : Form
     {
         private List<ClassMetier.Note> lesNotes = new List<ClassMetier.Note>();
-
+        private int cptNote = 0;
         public RH()
         {
             InitializeComponent();
@@ -89,13 +89,44 @@ namespace AppEval
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            int cptNote = 0;
-            ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
-            int idCritere = pgsql.GetIdCritereSQL(lstOffreEmplois.SelectedIndex, lstCritere.Items[lstCritere.SelectedIndex].ToString());
-            ClassMetier.Note note = new ClassMetier.Note(cptNote, idCritere, 1, (int)numNote.Value);
-            lesNotes.Add(note);
+            if(numNote.Value >= 0)
+            {
+                if(numNote.Value <= 5)
+                {
+                    ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
+                    int idCritere = pgsql.GetIdCritereSQL(lstOffreEmplois.SelectedIndex, lstCritere.Items[lstCritere.SelectedIndex].ToString());
+                    ClassMetier.Note note = new ClassMetier.Note(cptNote, idCritere, 1, (int)numNote.Value);
+                    lesNotes.Add(note);
+                    cptNote++;
+                    if (cptNote == lstCritere.Items.Count)
+                    {
+                        grpFinal.Show();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez mettre un note entre 0 et 5");
+            }
+        }
 
-            cptNote++;
+        private void btnValider_Click_1(object sender, EventArgs e)
+        {
+            if(numBonus.Value >= -10 && numBonus.Value <= 10)
+            {
+                if(txtCommentaire.Text == null)
+                {
+                    cptNote = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez addresser un commentaire avec votre évaluation");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez mettre un bonus entre 10 et -10");
+            }
         }
     }
 }
