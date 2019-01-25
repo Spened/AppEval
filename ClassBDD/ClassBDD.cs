@@ -37,7 +37,7 @@ namespace ClassBDD
 
         public static NpgsqlConnection conn()
         {
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=7777;Database=postgres;User Id=openpg;Password=openpgpwd");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd");
             conn.Open();
             return conn;
         }
@@ -64,6 +64,15 @@ namespace ClassBDD
             cmd.ExecuteNonQuery();
             cmd.Cancel();
             conn().Close();
+        }
+
+        public int GetIdCritereSQL(int idOffre, string unLibel)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT libellecritere FROM critere WHERE idOffre = " + idOffre + " AND libellecritere = '" + unLibel + "'", conn());
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            cmd.Cancel();
+            conn().Close();
+            return (int)dr[0];
         }
 
         /// <summary>
@@ -166,6 +175,24 @@ namespace ClassBDD
             cmd.ExecuteNonQuery();
             cmd.Cancel();
             conn().Close();
+        }
+
+        public List<ClassMetier.Candidature> getCandidatOffre(int idOffre)
+        {
+            List<ClassMetier.Candidature> lesCandidatures = new List<ClassMetier.Candidature>();
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT candidature.idcandidature, offre_d_emploi.idoffre, candidature.nomcandidat, candidature.prenomcandidat, candidature.datecandidature, candidature.etat FROM candidature INNER JOIN offre_d_emploi ON candidature.idoffre = offre_d_emploi.idoffre WHERE offre_d_emploi.idoffre ="+idOffre, conn());
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            // Output rows
+            while (dr.Read())
+            {
+                int idCandidat = int.Parse(dr[0].ToString());
+                DateTime date = DateTime.Parse(dr[4].ToString());
+                ClassMetier.Candidature candidature = new ClassMetier.Candidature(idOffre,idCandidat ,dr[2].ToString(), dr[3].ToString(),date, dr[5].ToString());
+                lesCandidatures.Add(candidature);
+            }
+            cmd.Cancel();
+            conn().Close();
+            return lesCandidatures;
         }
     }
 }

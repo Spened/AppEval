@@ -12,6 +12,8 @@ namespace AppEval
 {
     public partial class RH : Form
     {
+        private List<ClassMetier.Note> lesNotes = new List<ClassMetier.Note>();
+
         public RH()
         {
             InitializeComponent();
@@ -22,7 +24,6 @@ namespace AppEval
             {
                 lstOffreEmplois.Items.Add(offre.GetLibel);
             }
-
             if(pgsql.CountOffres()> 0)
                 lstOffreEmplois.SelectedIndex = 0;
         }
@@ -44,8 +45,13 @@ namespace AppEval
         {
             int idOffre;
             lstCritere.Items.Clear();
+            lstCandidats.Items.Clear();
             idOffre = lstOffreEmplois.SelectedIndex + 1;
             ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
+            foreach(ClassMetier.Candidature candid in pgsql.getCandidatOffre(idOffre))
+            {
+                lstCandidats.Items.Add(candid.GetPrenomCandidat + " " + candid.GetNomCandidat);
+            }
             foreach (ClassMetier.Critere c in pgsql.GetCriteres(idOffre))
             {
                 lstCritere.Items.Add(c.GetLibel);
@@ -83,9 +89,13 @@ namespace AppEval
 
         private void btnValider_Click(object sender, EventArgs e)
         {
+            int cptNote = 0;
             ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
+            int idCritere = pgsql.GetIdCritereSQL(lstOffreEmplois.SelectedIndex, lstCritere.Items[lstCritere.SelectedIndex].ToString());
+            ClassMetier.Note note = new ClassMetier.Note(cptNote, idCritere, 1, (int)numNote.Value);
+            lesNotes.Add(note);
 
-
+            cptNote++;
         }
     }
 }

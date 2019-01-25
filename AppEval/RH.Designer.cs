@@ -29,11 +29,19 @@
         private void InitializeComponent()
         {
             this.grpRH = new System.Windows.Forms.GroupBox();
+            this.grpFinal = new System.Windows.Forms.GroupBox();
+            this.btnValider = new System.Windows.Forms.Button();
+            this.lblBonus = new System.Windows.Forms.Label();
+            this.lblCommentaire = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.grpCandidats = new System.Windows.Forms.GroupBox();
+            this.lstCandidats = new System.Windows.Forms.ListBox();
             this.lblConnexion = new System.Windows.Forms.Label();
             this.grpNote = new System.Windows.Forms.GroupBox();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numNote = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomCritere = new System.Windows.Forms.TextBox();
             this.grpCritere = new System.Windows.Forms.GroupBox();
@@ -41,22 +49,14 @@
             this.lstCritere = new System.Windows.Forms.ListBox();
             this.grpOffresEmplois = new System.Windows.Forms.GroupBox();
             this.lstOffreEmplois = new System.Windows.Forms.ListBox();
-            this.grpCandidats = new System.Windows.Forms.GroupBox();
-            this.lstCandidats = new System.Windows.Forms.ListBox();
-            this.grpFinal = new System.Windows.Forms.GroupBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblCommentaire = new System.Windows.Forms.Label();
-            this.lblBonus = new System.Windows.Forms.Label();
-            this.btnValider = new System.Windows.Forms.Button();
             this.grpRH.SuspendLayout();
-            this.grpNote.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.grpCritere.SuspendLayout();
-            this.grpOffresEmplois.SuspendLayout();
-            this.grpCandidats.SuspendLayout();
             this.grpFinal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.grpCandidats.SuspendLayout();
+            this.grpNote.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numNote)).BeginInit();
+            this.grpCritere.SuspendLayout();
+            this.grpOffresEmplois.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpRH
@@ -74,6 +74,81 @@
             this.grpRH.TabStop = false;
             this.grpRH.Text = "RH";
             // 
+            // grpFinal
+            // 
+            this.grpFinal.Controls.Add(this.btnValider);
+            this.grpFinal.Controls.Add(this.lblBonus);
+            this.grpFinal.Controls.Add(this.lblCommentaire);
+            this.grpFinal.Controls.Add(this.textBox1);
+            this.grpFinal.Controls.Add(this.numericUpDown2);
+            this.grpFinal.Location = new System.Drawing.Point(844, 214);
+            this.grpFinal.Name = "grpFinal";
+            this.grpFinal.Size = new System.Drawing.Size(290, 260);
+            this.grpFinal.TabIndex = 7;
+            this.grpFinal.TabStop = false;
+            this.grpFinal.Text = "Eval Final";
+            // 
+            // btnValider
+            // 
+            this.btnValider.Location = new System.Drawing.Point(115, 232);
+            this.btnValider.Name = "btnValider";
+            this.btnValider.Size = new System.Drawing.Size(75, 23);
+            this.btnValider.TabIndex = 7;
+            this.btnValider.Text = "Valider";
+            this.btnValider.UseVisualStyleBackColor = true;
+            // 
+            // lblBonus
+            // 
+            this.lblBonus.AutoSize = true;
+            this.lblBonus.Location = new System.Drawing.Point(99, 184);
+            this.lblBonus.Name = "lblBonus";
+            this.lblBonus.Size = new System.Drawing.Size(97, 17);
+            this.lblBonus.TabIndex = 6;
+            this.lblBonus.Text = "Bonus[-10/10]";
+            // 
+            // lblCommentaire
+            // 
+            this.lblCommentaire.AutoSize = true;
+            this.lblCommentaire.Location = new System.Drawing.Point(6, 25);
+            this.lblCommentaire.Name = "lblCommentaire";
+            this.lblCommentaire.Size = new System.Drawing.Size(91, 17);
+            this.lblCommentaire.TabIndex = 5;
+            this.lblCommentaire.Text = "Commentaire";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 45);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(278, 136);
+            this.textBox1.TabIndex = 4;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(125, 204);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(48, 22);
+            this.numericUpDown2.TabIndex = 3;
+            // 
+            // grpCandidats
+            // 
+            this.grpCandidats.Controls.Add(this.lstCandidats);
+            this.grpCandidats.Location = new System.Drawing.Point(268, 55);
+            this.grpCandidats.Name = "grpCandidats";
+            this.grpCandidats.Size = new System.Drawing.Size(291, 419);
+            this.grpCandidats.TabIndex = 6;
+            this.grpCandidats.TabStop = false;
+            this.grpCandidats.Text = "Candidats";
+            // 
+            // lstCandidats
+            // 
+            this.lstCandidats.FormattingEnabled = true;
+            this.lstCandidats.ItemHeight = 16;
+            this.lstCandidats.Location = new System.Drawing.Point(6, 21);
+            this.lstCandidats.Name = "lstCandidats";
+            this.lstCandidats.Size = new System.Drawing.Size(279, 388);
+            this.lstCandidats.TabIndex = 0;
+            // 
             // lblConnexion
             // 
             this.lblConnexion.AutoSize = true;
@@ -86,7 +161,7 @@
             // 
             this.grpNote.Controls.Add(this.btnAjouter);
             this.grpNote.Controls.Add(this.label2);
-            this.grpNote.Controls.Add(this.numericUpDown1);
+            this.grpNote.Controls.Add(this.numNote);
             this.grpNote.Controls.Add(this.label1);
             this.grpNote.Controls.Add(this.txtNomCritere);
             this.grpNote.Location = new System.Drawing.Point(843, 55);
@@ -115,12 +190,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Note [0/5]";
             // 
-            // numericUpDown1
+            // numNote
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(116, 93);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(48, 22);
-            this.numericUpDown1.TabIndex = 2;
+            this.numNote.Location = new System.Drawing.Point(116, 93);
+            this.numNote.Name = "numNote";
+            this.numNote.Size = new System.Drawing.Size(48, 22);
+            this.numNote.TabIndex = 2;
             // 
             // label1
             // 
@@ -187,81 +262,6 @@
             this.lstOffreEmplois.TabIndex = 0;
             this.lstOffreEmplois.SelectedIndexChanged += new System.EventHandler(this.lstOffreEmplois_SelectedIndexChanged);
             // 
-            // grpCandidats
-            // 
-            this.grpCandidats.Controls.Add(this.lstCandidats);
-            this.grpCandidats.Location = new System.Drawing.Point(268, 55);
-            this.grpCandidats.Name = "grpCandidats";
-            this.grpCandidats.Size = new System.Drawing.Size(291, 419);
-            this.grpCandidats.TabIndex = 6;
-            this.grpCandidats.TabStop = false;
-            this.grpCandidats.Text = "Candidats";
-            // 
-            // lstCandidats
-            // 
-            this.lstCandidats.FormattingEnabled = true;
-            this.lstCandidats.ItemHeight = 16;
-            this.lstCandidats.Location = new System.Drawing.Point(6, 21);
-            this.lstCandidats.Name = "lstCandidats";
-            this.lstCandidats.Size = new System.Drawing.Size(279, 388);
-            this.lstCandidats.TabIndex = 0;
-            // 
-            // grpFinal
-            // 
-            this.grpFinal.Controls.Add(this.btnValider);
-            this.grpFinal.Controls.Add(this.lblBonus);
-            this.grpFinal.Controls.Add(this.lblCommentaire);
-            this.grpFinal.Controls.Add(this.textBox1);
-            this.grpFinal.Controls.Add(this.numericUpDown2);
-            this.grpFinal.Location = new System.Drawing.Point(844, 214);
-            this.grpFinal.Name = "grpFinal";
-            this.grpFinal.Size = new System.Drawing.Size(290, 260);
-            this.grpFinal.TabIndex = 7;
-            this.grpFinal.TabStop = false;
-            this.grpFinal.Text = "Eval Final";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(125, 204);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(48, 22);
-            this.numericUpDown2.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 45);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 136);
-            this.textBox1.TabIndex = 4;
-            // 
-            // lblCommentaire
-            // 
-            this.lblCommentaire.AutoSize = true;
-            this.lblCommentaire.Location = new System.Drawing.Point(6, 25);
-            this.lblCommentaire.Name = "lblCommentaire";
-            this.lblCommentaire.Size = new System.Drawing.Size(91, 17);
-            this.lblCommentaire.TabIndex = 5;
-            this.lblCommentaire.Text = "Commentaire";
-            // 
-            // lblBonus
-            // 
-            this.lblBonus.AutoSize = true;
-            this.lblBonus.Location = new System.Drawing.Point(99, 184);
-            this.lblBonus.Name = "lblBonus";
-            this.lblBonus.Size = new System.Drawing.Size(97, 17);
-            this.lblBonus.TabIndex = 6;
-            this.lblBonus.Text = "Bonus[-10/10]";
-            // 
-            // btnValider
-            // 
-            this.btnValider.Location = new System.Drawing.Point(115, 232);
-            this.btnValider.Name = "btnValider";
-            this.btnValider.Size = new System.Drawing.Size(75, 23);
-            this.btnValider.TabIndex = 7;
-            this.btnValider.Text = "Valider";
-            this.btnValider.UseVisualStyleBackColor = true;
-            // 
             // RH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -272,16 +272,16 @@
             this.Text = "RH";
             this.grpRH.ResumeLayout(false);
             this.grpRH.PerformLayout();
-            this.grpNote.ResumeLayout(false);
-            this.grpNote.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.grpCritere.ResumeLayout(false);
-            this.grpCritere.PerformLayout();
-            this.grpOffresEmplois.ResumeLayout(false);
-            this.grpCandidats.ResumeLayout(false);
             this.grpFinal.ResumeLayout(false);
             this.grpFinal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.grpCandidats.ResumeLayout(false);
+            this.grpNote.ResumeLayout(false);
+            this.grpNote.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numNote)).EndInit();
+            this.grpCritere.ResumeLayout(false);
+            this.grpCritere.PerformLayout();
+            this.grpOffresEmplois.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -292,7 +292,7 @@
         private System.Windows.Forms.GroupBox grpNote;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numNote;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomCritere;
         private System.Windows.Forms.GroupBox grpCritere;
