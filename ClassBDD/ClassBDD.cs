@@ -15,6 +15,10 @@ namespace ClassBDD
 {
     public class PGSQL
     {
+        /// <summary>
+        /// Test de connexion à la base de données
+        /// </summary>
+        /// <returns></returns>
         public string TestConn()
         {
             string str = "";
@@ -41,7 +45,7 @@ namespace ClassBDD
         /// <returns></returns>
         public static NpgsqlConnection conn()
         {
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database=mission2;User Id=openpg;Password=openpgpwd");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=6666;Database=postgres;User Id=louis;Password=passwd");
             conn.Open();
             return conn;
         }
@@ -96,11 +100,54 @@ namespace ClassBDD
         /// <returns></returns>
         public int GetIdCritereSQL(int idOffre, string unLibel)
         {
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT libellecritere FROM critere WHERE idOffre = " + idOffre + " AND libellecritere = '" + unLibel + "'", conn());
+            int id = 0;
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT idcritere FROM critere WHERE idOffre = " + idOffre + " AND libellecritere = '"+ unLibel +"'" , conn());
             NpgsqlDataReader dr = cmd.ExecuteReader();
             cmd.Cancel();
             conn().Close();
-            return (int)dr[0];
+            while (dr.Read())
+                id = int.Parse(dr[0].ToString());
+            return id;
+        }
+
+        public void InsertEvaluation(int idOffre, int idCritere,  List<ClassMetier.Note> lesNotes,  string commentaire, decimal bonus)
+        {
+            int idEvaluation = 1;
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT currval('public.evaluation_idevaluation_seq')", conn());
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    idEvaluation = int.Parse(dr[0].ToString());
+                }
+                conn().Close();
+            }
+            catch
+            {
+                idEvaluation = 1;
+            }
+            NpgsqlCommand command = new NpgsqlCommand("INSERT INTO public.evaluation(idevaluation, nomrh, prenomrh, commentaire, bonus) VALUES (nextval('public.evaluation_idevaluation_seq') , 'Marie' , 'Jean' , '" + commentaire + "'," + bonus.ToString() + ")", conn());
+            command.ExecuteNonQuery();
+            foreach(ClassMetier.Note note in lesNotes)
+            {
+                command.CommandText = "INSERT INTO public.noter(idoffre, idcritere, idevaluation, note) VALUES ("+idOffre + ", " + note.GetIdCritere + ", "+ idEvaluation +", " + note.GetNote + ")";
+                command.ExecuteNonQuery();
+                command.Cancel();
+            }
+            conn().Close();
+        }
+
+        public int GetIdEvaluation(string commentaire, decimal bonus)
+        {
+            int id = 0;
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT idevaluation FROM public.evaluation WHERE commentaire = '" + commentaire + "' AND bonus = " + bonus + ")", conn());
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            cmd.Cancel();
+            conn().Close();
+            while (dr.Read())
+                id = int.Parse(dr[0].ToString());
+            return id;
         }
 
         /// <summary>

@@ -94,7 +94,8 @@ namespace AppEval
                 if(numNote.Value <= 5)
                 {
                     ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
-                    int idCritere = pgsql.GetIdCritereSQL(lstOffreEmplois.SelectedIndex, lstCritere.Items[lstCritere.SelectedIndex].ToString());
+                    int idOffre = lstOffreEmplois.SelectedIndex + 1;
+                    int idCritere = pgsql.GetIdCritereSQL(idOffre, txtNomCritere.Text);
                     ClassMetier.Note note = new ClassMetier.Note(cptNote, idCritere, 1, (int)numNote.Value);
                     lesNotes.Add(note);
                     cptNote++;
@@ -112,11 +113,16 @@ namespace AppEval
 
         private void btnValider_Click_1(object sender, EventArgs e)
         {
-            if(numBonus.Value >= -10 && numBonus.Value <= 10)
+            ClassBDD.PGSQL pgsql = new ClassBDD.PGSQL();
+            int idOffre = lstOffreEmplois.SelectedIndex + 1;
+            int idCritere = pgsql.GetIdCritereSQL(idOffre, txtNomCritere.Text);
+            if (numBonus.Value >= -10 && numBonus.Value <= 10)
             {
-                if(txtCommentaire.Text == null)
+                if(txtCommentaire.Text.Length > 0)
                 {
-                    cptNote = 0;
+                    pgsql.InsertEvaluation(idOffre, idCritere, lesNotes, txtCommentaire.Text, numBonus.Value);
+
+                    MessageBox.Show("L'évalutaiton à bien était ajouté !");
                 }
                 else
                 {
