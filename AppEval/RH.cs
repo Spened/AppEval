@@ -128,5 +128,10 @@ namespace AppEval
                 MessageBox.Show("Veuillez mettre un bonus entre 10 et -10");
             }
         }
+
+        private void txtCommentaire_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
